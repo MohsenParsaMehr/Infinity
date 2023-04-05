@@ -1,0 +1,885 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InfinityModelStoreContainer" CdmEntityContainer="InfinityEntities">
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="InfinityModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="InfinityModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="InfinityModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="InfinityModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InfinityModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="InfinityModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InfinityModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="InfinityModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="InfinityModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="usp_getBadContentTypes" FunctionName="InfinityModel.Store.usp_getBadContentTypes" />
+    <FunctionImportMapping FunctionImportName="usp_GetGroceries" FunctionName="InfinityModel.Store.usp_GetGroceries">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InfinityModel.usp_GetGroceries_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsSpecial" ColumnName="IsSpecial" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="OffPrice" ColumnName="OffPrice" />
+          <ScalarProperty Name="PriceValue" ColumnName="PriceValue" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetOfferableCategories" FunctionName="InfinityModel.Store.usp_GetOfferableCategories">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InfinityModel.usp_GetOfferableCategories_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ParentRef" ColumnName="ParentRef" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetOfferableCategoriesAsXml" FunctionName="InfinityModel.Store.usp_GetOfferableCategoriesAsXml" />
+    <FunctionImportMapping FunctionImportName="usp_getOfferableTypeProperties" FunctionName="InfinityModel.Store.usp_getOfferableTypeProperties" />
+    <FunctionImportMapping FunctionImportName="usp_GetOfferableTypesByCategory" FunctionName="InfinityModel.Store.usp_GetOfferableTypesByCategory" />
+    <FunctionImportMapping FunctionImportName="usp_GetOfferableTypesByCategoryAsXml" FunctionName="InfinityModel.Store.usp_GetOfferableTypesByCategoryAsXml" />
+    <FunctionImportMapping FunctionImportName="usp_GetProvincesAsXml" FunctionName="InfinityModel.Store.usp_GetProvincesAsXml" />
+    <FunctionImportMapping FunctionImportName="usp_insertOfferablePicture" FunctionName="InfinityModel.Store.usp_insertOfferablePicture" />
+    <FunctionImportMapping FunctionImportName="usp_GetGroceryDetails" FunctionName="InfinityModel.Store.usp_GetGroceryDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InfinityModel.usp_GetGroceryDetails_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsSpecial" ColumnName="IsSpecial" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OffPrice" ColumnName="OffPrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="TypeRef" ColumnName="TypeRef" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="BrandRef" ColumnName="BrandRef" />
+          <ScalarProperty Name="ScoresToBuy" ColumnName="ScoresToBuy" />
+          <ScalarProperty Name="ScoreCount" ColumnName="ScoreCount" />
+          <ScalarProperty Name="FreshnessGuaranteeDays" ColumnName="FreshnessGuaranteeDays" />
+          <ScalarProperty Name="VariationNotes" ColumnName="VariationNotes" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Alternate" ColumnName="Alternate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="old_usp_GetPriceTypesAsXml" FunctionName="InfinityModel.Store.old_usp_GetPriceTypesAsXml" />
+    <FunctionImportMapping FunctionImportName="old_usp_GetSPCategoriesAsXml" FunctionName="InfinityModel.Store.old_usp_GetSPCategoriesAsXml" />
+    <FunctionImportMapping FunctionImportName="old_usp_GetSPTypesByCategoryAsXml" FunctionName="InfinityModel.Store.old_usp_GetSPTypesByCategoryAsXml" />
+    <FunctionImportMapping FunctionImportName="usp_GetGroceryPictures" FunctionName="InfinityModel.Store.usp_GetGroceryPictures">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InfinityModel.usp_GetGroceryPictures_Result">
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Alternate" ColumnName="Alternate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_userLogin" FunctionName="InfinityModel.Store.usp_userLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InfinityModel.usp_userLogin_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Address">
+      <EntityTypeMapping TypeName="InfinityModel.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="PostalAddress" ColumnName="PostalAddress" />
+          <ScalarProperty Name="CityRef" ColumnName="CityRef" />
+          <ScalarProperty Name="ProvinceRef" ColumnName="ProvinceRef" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BackOrderPartCondition">
+      <EntityTypeMapping TypeName="InfinityModel.BackOrderPartCondition">
+        <MappingFragment StoreEntitySet="BackOrderPartCondition">
+          <ScalarProperty Name="OrderItemRef" ColumnName="OrderItemRef" />
+          <ScalarProperty Name="ConditionRef" ColumnName="ConditionRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BadContentType">
+      <EntityTypeMapping TypeName="InfinityModel.BadContentType">
+        <MappingFragment StoreEntitySet="BadContentType">
+          <ScalarProperty Name="Severity" ColumnName="Severity" />
+          <ScalarProperty Name="PenaltyRef" ColumnName="PenaltyRef" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BankAccount">
+      <EntityTypeMapping TypeName="InfinityModel.BankAccount">
+        <MappingFragment StoreEntitySet="BankAccount">
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="AccessCartNo" ColumnName="AccessCartNo" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlackList">
+      <EntityTypeMapping TypeName="InfinityModel.BlackList">
+        <MappingFragment StoreEntitySet="BlackList">
+          <ScalarProperty Name="DeviceIMEI" ColumnName="DeviceIMEI" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="MACAddress" ColumnName="MACAddress" />
+          <ScalarProperty Name="BadContentTypeRef" ColumnName="BadContentTypeRef" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="ForbidenPhraseRef" ColumnName="ForbidenPhraseRef" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="PenaltyRef" ColumnName="PenaltyRef" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brand">
+      <EntityTypeMapping TypeName="InfinityModel.Brand">
+        <MappingFragment StoreEntitySet="Brand">
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarBrands">
+      <EntityTypeMapping TypeName="InfinityModel.CarBrands">
+        <MappingFragment StoreEntitySet="CarBrands">
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="CountryRef" ColumnName="CountryRef" />
+          <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarSeries">
+      <EntityTypeMapping TypeName="InfinityModel.CarSeries">
+        <MappingFragment StoreEntitySet="CarSeries">
+          <ScalarProperty Name="CarBrandRef" ColumnName="CarBrandRef" />
+          <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="City">
+      <EntityTypeMapping TypeName="InfinityModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="ProvinceRef" ColumnName="ProvinceRef" />
+          <ScalarProperty Name="PrefixCode" ColumnName="PrefixCode" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comment">
+      <EntityTypeMapping TypeName="InfinityModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="ShareToWhom" ColumnName="ShareToWhom" />
+          <ScalarProperty Name="IsDisliked" ColumnName="IsDisliked" />
+          <ScalarProperty Name="IsLiked" ColumnName="IsLiked" />
+          <ScalarProperty Name="Comment1" ColumnName="Comment" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="BadContentTypeRef" ColumnName="BadContentTypeRef" />
+          <ScalarProperty Name="IsShared" ColumnName="IsShared" />
+          <ScalarProperty Name="IsFavorited" ColumnName="IsFavorited" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Country">
+      <EntityTypeMapping TypeName="InfinityModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Coupon">
+      <EntityTypeMapping TypeName="InfinityModel.Coupon">
+        <MappingFragment StoreEntitySet="Coupon">
+          <ScalarProperty Name="MaxUsePerCustomer" ColumnName="MaxUsePerCustomer" />
+          <ScalarProperty Name="MaxUse" ColumnName="MaxUse" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="OffAmount" ColumnName="OffAmount" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CouponValidOfferable">
+      <EntityTypeMapping TypeName="InfinityModel.CouponValidOfferable">
+        <MappingFragment StoreEntitySet="CouponValidOfferable">
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="CouponRef" ColumnName="CouponRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CouponValidOfferableType">
+      <EntityTypeMapping TypeName="InfinityModel.CouponValidOfferableType">
+        <MappingFragment StoreEntitySet="CouponValidOfferableType">
+          <ScalarProperty Name="OfferableTypeRef" ColumnName="OfferableTypeRef" />
+          <ScalarProperty Name="CouponRef" ColumnName="CouponRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryMethod">
+      <EntityTypeMapping TypeName="InfinityModel.DeliveryMethod">
+        <MappingFragment StoreEntitySet="DeliveryMethod">
+          <ScalarProperty Name="FreeIfOrderAbove" ColumnName="FreeIfOrderAbove" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="DeliveryTimeTo" ColumnName="DeliveryTimeTo" />
+          <ScalarProperty Name="DeliveryTimeFrom" ColumnName="DeliveryTimeFrom" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="IsLocal" ColumnName="IsLocal" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryType">
+      <EntityTypeMapping TypeName="InfinityModel.DeliveryType">
+        <MappingFragment StoreEntitySet="DeliveryType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EPaymentBank">
+      <EntityTypeMapping TypeName="InfinityModel.EPaymentBank">
+        <MappingFragment StoreEntitySet="EPaymentBank">
+          <ScalarProperty Name="PaymentMethodRef" ColumnName="PaymentMethodRef" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="RedirectUrl" ColumnName="RedirectUrl" />
+          <ScalarProperty Name="LogoUrl" ColumnName="LogoUrl" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbak">
+      <EntityTypeMapping TypeName="InfinityModel.Feedbak">
+        <MappingFragment StoreEntitySet="Feedbak">
+          <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Field">
+      <EntityTypeMapping TypeName="InfinityModel.Field">
+        <MappingFragment StoreEntitySet="Field">
+          <ScalarProperty Name="Properties" ColumnName="Properties" />
+          <ScalarProperty Name="MinChars" ColumnName="MinChars" />
+          <ScalarProperty Name="TypeRef" ColumnName="TypeRef" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ValidationExpression" ColumnName="ValidationExpression" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="Tooltip" ColumnName="Tooltip" />
+          <ScalarProperty Name="IsRequired" ColumnName="IsRequired" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FieldType">
+      <EntityTypeMapping TypeName="InfinityModel.FieldType">
+        <MappingFragment StoreEntitySet="FieldType">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ForbiddenPhrase">
+      <EntityTypeMapping TypeName="InfinityModel.ForbiddenPhrase">
+        <MappingFragment StoreEntitySet="ForbiddenPhrase">
+          <ScalarProperty Name="Severity" ColumnName="Severity" />
+          <ScalarProperty Name="PenaltyRef" ColumnName="PenaltyRef" />
+          <ScalarProperty Name="Phrase" ColumnName="Phrase" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grocery">
+      <EntityTypeMapping TypeName="InfinityModel.Grocery">
+        <MappingFragment StoreEntitySet="Grocery">
+          <ScalarProperty Name="FreshnessGuaranteeDays" ColumnName="FreshnessGuaranteeDays" />
+          <ScalarProperty Name="WeightUnit" ColumnName="WeightUnit" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="ScoreCount" ColumnName="ScoreCount" />
+          <ScalarProperty Name="ScoresToBuy" ColumnName="ScoresToBuy" />
+          <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+          <ScalarProperty Name="ProductionDate" ColumnName="ProductionDate" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginHistory">
+      <EntityTypeMapping TypeName="InfinityModel.LoginHistory">
+        <MappingFragment StoreEntitySet="LoginHistory">
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
+          <ScalarProperty Name="Using" ColumnName="Using" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Off">
+      <EntityTypeMapping TypeName="InfinityModel.Off">
+        <MappingFragment StoreEntitySet="Off">
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="CustomerRoleRef" ColumnName="CustomerRoleRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Offerable">
+      <EntityTypeMapping TypeName="InfinityModel.Offerable">
+        <MappingFragment StoreEntitySet="Offerable">
+          <ScalarProperty Name="BrandRef" ColumnName="BrandRef" />
+          <ScalarProperty Name="IsBackOrder" ColumnName="IsBackOrder" />
+          <ScalarProperty Name="IsSpecial" ColumnName="IsSpecial" />
+          <ScalarProperty Name="OperatorUserRef" ColumnName="OperatorUserRef" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="TypeRef" ColumnName="TypeRef" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferableCategories">
+      <EntityTypeMapping TypeName="InfinityModel.OfferableCategories">
+        <MappingFragment StoreEntitySet="OfferableCategories">
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ParentRef" ColumnName="ParentRef" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferableDeliveryMethod">
+      <EntityTypeMapping TypeName="InfinityModel.OfferableDeliveryMethod">
+        <MappingFragment StoreEntitySet="OfferableDeliveryMethod">
+          <ScalarProperty Name="DeliveryMethodRef" ColumnName="DeliveryMethodRef" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferablePicture">
+      <EntityTypeMapping TypeName="InfinityModel.OfferablePicture">
+        <MappingFragment StoreEntitySet="OfferablePicture">
+          <ScalarProperty Name="PictureRef" ColumnName="PictureRef" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferableType">
+      <EntityTypeMapping TypeName="InfinityModel.OfferableType">
+        <MappingFragment StoreEntitySet="OfferableType">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="IsVirtual" ColumnName="IsVirtual" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+          <ScalarProperty Name="ParentRef" ColumnName="ParentRef" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferableTypeBrand">
+      <EntityTypeMapping TypeName="InfinityModel.OfferableTypeBrand">
+        <MappingFragment StoreEntitySet="OfferableTypeBrand">
+          <ScalarProperty Name="BrandRef" ColumnName="BrandRef" />
+          <ScalarProperty Name="OfferableTypeRef" ColumnName="OfferableTypeRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferableTypeProperty">
+      <EntityTypeMapping TypeName="InfinityModel.OfferableTypeProperty">
+        <MappingFragment StoreEntitySet="OfferableTypeProperty">
+          <ScalarProperty Name="FieldRef" ColumnName="FieldRef" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="OfferableTypeRef" ColumnName="OfferableTypeRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferableTypePropertyValue">
+      <EntityTypeMapping TypeName="InfinityModel.OfferableTypePropertyValue">
+        <MappingFragment StoreEntitySet="OfferableTypePropertyValue">
+          <ScalarProperty Name="SelectedPredefinedValueRef" ColumnName="SelectedPredefinedValueRef" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="FieldRef" ColumnName="FieldRef" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferableVariation">
+      <EntityTypeMapping TypeName="InfinityModel.OfferableVariation">
+        <MappingFragment StoreEntitySet="OfferableVariation">
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="PriceRef" ColumnName="PriceRef" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="InfinityModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="AddressRef" ColumnName="AddressRef" />
+          <ScalarProperty Name="PaymentMethodRef" ColumnName="PaymentMethodRef" />
+          <ScalarProperty Name="DeliveryMethodRef" ColumnName="DeliveryMethodRef" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderItem">
+      <EntityTypeMapping TypeName="InfinityModel.OrderItem">
+        <MappingFragment StoreEntitySet="OrderItem">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="OrderRef" ColumnName="OrderRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentMethod">
+      <EntityTypeMapping TypeName="InfinityModel.PaymentMethod">
+        <MappingFragment StoreEntitySet="PaymentMethod">
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Penalty">
+      <EntityTypeMapping TypeName="InfinityModel.Penalty">
+        <MappingFragment StoreEntitySet="Penalty">
+          <ScalarProperty Name="Severity" ColumnName="Severity" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Person">
+      <EntityTypeMapping TypeName="InfinityModel.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Picture">
+      <EntityTypeMapping TypeName="InfinityModel.Picture">
+        <MappingFragment StoreEntitySet="Picture">
+          <ScalarProperty Name="ThumbnailUrl" ColumnName="ThumbnailUrl" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Alternate" ColumnName="Alternate" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PredefinedListValue">
+      <EntityTypeMapping TypeName="InfinityModel.PredefinedListValue">
+        <MappingFragment StoreEntitySet="PredefinedListValue">
+          <ScalarProperty Name="FieldRef" ColumnName="FieldRef" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Price">
+      <EntityTypeMapping TypeName="InfinityModel.Price">
+        <MappingFragment StoreEntitySet="Price">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CoWorkerPrice" ColumnName="CoWorkerPrice" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="PriceValue" ColumnName="PriceValue" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Province">
+      <EntityTypeMapping TypeName="InfinityModel.Province">
+        <MappingFragment StoreEntitySet="Province">
+          <ScalarProperty Name="PrefixCode" ColumnName="PrefixCode" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuantityOff">
+      <EntityTypeMapping TypeName="InfinityModel.QuantityOff">
+        <MappingFragment StoreEntitySet="QuantityOff">
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="CustomerRoleRef" ColumnName="CustomerRoleRef" />
+          <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Region">
+      <EntityTypeMapping TypeName="InfinityModel.Region">
+        <MappingFragment StoreEntitySet="Region">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReturnBack">
+      <EntityTypeMapping TypeName="InfinityModel.ReturnBack">
+        <MappingFragment StoreEntitySet="ReturnBack">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Culprit" ColumnName="Culprit" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReturnBackResult">
+      <EntityTypeMapping TypeName="InfinityModel.ReturnBackResult">
+        <MappingFragment StoreEntitySet="ReturnBackResult">
+          <ScalarProperty Name="OperatorUserRef" ColumnName="OperatorUserRef" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="IsAccepted" ColumnName="IsAccepted" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="ReturnBackRef" ColumnName="ReturnBackRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="InfinityModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaleTerm">
+      <EntityTypeMapping TypeName="InfinityModel.SaleTerm">
+        <MappingFragment StoreEntitySet="SaleTerm">
+          <ScalarProperty Name="OperatorUserRef" ColumnName="OperatorUserRef" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="MaxQuantityPerBuyer" ColumnName="MaxQuantityPerBuyer" />
+          <ScalarProperty Name="TermRef" ColumnName="TermRef" />
+          <ScalarProperty Name="ApplicableFor" ColumnName="ApplicableFor" />
+          <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SearchHistory">
+      <EntityTypeMapping TypeName="InfinityModel.SearchHistory">
+        <MappingFragment StoreEntitySet="SearchHistory">
+          <ScalarProperty Name="CityRef" ColumnName="CityRef" />
+          <ScalarProperty Name="CarSerieYearRef" ColumnName="CarSerieYearRef" />
+          <ScalarProperty Name="ProvinceRef" ColumnName="ProvinceRef" />
+          <ScalarProperty Name="OfferableTypeRef" ColumnName="OfferableTypeRef" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="Criteria" ColumnName="Criteria" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SearchResult">
+      <EntityTypeMapping TypeName="InfinityModel.SearchResult">
+        <MappingFragment StoreEntitySet="SearchResult">
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="IsClicked" ColumnName="IsClicked" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="SearchRef" ColumnName="SearchRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceProvider">
+      <EntityTypeMapping TypeName="InfinityModel.ServiceProvider">
+        <MappingFragment StoreEntitySet="ServiceProvider">
+          <ScalarProperty Name="AdminGrantedReputation" ColumnName="AdminGrantedReputation" />
+          <ScalarProperty Name="WorkHours" ColumnName="WorkHours" />
+          <ScalarProperty Name="Reputation" ColumnName="Reputation" />
+          <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="TypeRef" ColumnName="TypeRef" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CityRef" ColumnName="CityRef" />
+          <ScalarProperty Name="ProvinceRef" ColumnName="ProvinceRef" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Setting">
+      <EntityTypeMapping TypeName="InfinityModel.Setting">
+        <MappingFragment StoreEntitySet="Setting">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DotNetType" ColumnName="DotNetType" />
+          <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPActivityField">
+      <EntityTypeMapping TypeName="InfinityModel.SPActivityField">
+        <MappingFragment StoreEntitySet="SPActivityField">
+          <ScalarProperty Name="VehicleTypeRef" ColumnName="VehicleTypeRef" />
+          <ScalarProperty Name="OfferableCategoryRef" ColumnName="OfferableCategoryRef" />
+          <ScalarProperty Name="OfferableTypeRef" ColumnName="OfferableTypeRef" />
+          <ScalarProperty Name="CarSerieYearRef" ColumnName="CarSerieYearRef" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPCategory">
+      <EntityTypeMapping TypeName="InfinityModel.SPCategory">
+        <MappingFragment StoreEntitySet="SPCategory">
+          <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ParentRef" ColumnName="ParentRef" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPDeliveryMethod">
+      <EntityTypeMapping TypeName="InfinityModel.SPDeliveryMethod">
+        <MappingFragment StoreEntitySet="SPDeliveryMethod">
+          <ScalarProperty Name="DeliveryMethodRef" ColumnName="DeliveryMethodRef" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPPaymentMethod">
+      <EntityTypeMapping TypeName="InfinityModel.SPPaymentMethod">
+        <MappingFragment StoreEntitySet="SPPaymentMethod">
+          <ScalarProperty Name="PaymentMethodRef" ColumnName="PaymentMethodRef" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="InfinityModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tag">
+      <EntityTypeMapping TypeName="InfinityModel.Tag">
+        <MappingFragment StoreEntitySet="Tag">
+          <ScalarProperty Name="SearchHitCounts" ColumnName="SearchHitCounts" />
+          <ScalarProperty Name="Tag1" ColumnName="Tag" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Term">
+      <EntityTypeMapping TypeName="InfinityModel.Term">
+        <MappingFragment StoreEntitySet="Term">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transaction">
+      <EntityTypeMapping TypeName="InfinityModel.Transaction">
+        <MappingFragment StoreEntitySet="Transaction">
+          <ScalarProperty Name="Regarding" ColumnName="Regarding" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="BankAccountRef" ColumnName="BankAccountRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactionDetail">
+      <EntityTypeMapping TypeName="InfinityModel.TransactionDetail">
+        <MappingFragment StoreEntitySet="TransactionDetail">
+          <ScalarProperty Name="ReturnbackResultRef" ColumnName="ReturnbackResultRef" />
+          <ScalarProperty Name="OrderRef" ColumnName="OrderRef" />
+          <ScalarProperty Name="TransactionRef" ColumnName="TransactionRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="InfinityModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="SendPromotions" ColumnName="SendPromotions" />
+          <ScalarProperty Name="Reputation" ColumnName="Reputation" />
+          <ScalarProperty Name="ReferrerRef" ColumnName="ReferrerRef" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="PersonRef" ColumnName="PersonRef" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRole">
+      <EntityTypeMapping TypeName="InfinityModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="OperatorUserRef" ColumnName="OperatorUserRef" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RoleRef" ColumnName="RoleRef" />
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

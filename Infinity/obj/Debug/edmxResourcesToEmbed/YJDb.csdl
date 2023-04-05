@@ -1,0 +1,2492 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YJDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="YJEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="usp_GetAllCarBransAsXML" ReturnType="Collection(String)" />
+    <FunctionImport Name="usp_GetOfferableCategoriesAsXml" ReturnType="Collection(String)">
+      <Parameter Name="ParentID" Mode="In" Type="Int32" />
+      <Parameter Name="Title" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetPartsByCarInfoAndCategoryAsXml" ReturnType="Collection(String)">
+      <Parameter Name="CarBrandId" Mode="In" Type="Int32" />
+      <Parameter Name="CarSerieId" Mode="In" Type="Int32" />
+      <Parameter Name="CarSerieYearId" Mode="In" Type="Int32" />
+      <Parameter Name="PartCategoryId" Mode="In" Type="Int32" />
+      <Parameter Name="ProvinceId" Mode="In" Type="Int32" />
+      <Parameter Name="CityId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_getPartsAsXml" ReturnType="Collection(String)">
+      <Parameter Name="Criteria" Mode="In" Type="String" />
+      <Parameter Name="TechnicalNo" Mode="In" Type="String" />
+      <Parameter Name="ChasisNo" Mode="In" Type="String" />
+      <Parameter Name="CarBrandId" Mode="In" Type="Int32" />
+      <Parameter Name="CarSerieId" Mode="In" Type="Int32" />
+      <Parameter Name="CarSerieYearId" Mode="In" Type="Int32" />
+      <Parameter Name="PartCategoryId" Mode="In" Type="Int32" />
+      <Parameter Name="ProvinceId" Mode="In" Type="Int32" />
+      <Parameter Name="CityId" Mode="In" Type="Int32" />
+      <Parameter Name="VehicleTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="Operator" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetProvincesAsXml" ReturnType="Collection(String)" />
+    <FunctionImport Name="usp_GetVehicleTypeId" ReturnType="Collection(YJDbModel.usp_GetVehicleTypeId_Result)">
+      <Parameter Name="VehicleCategoryId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetOfferableTypesByCategoryAsXml" ReturnType="Collection(String)">
+      <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_getOfferableTypeProperties" ReturnType="Collection(String)">
+      <Parameter Name="OfferableTypeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetPriceTypesAsXml" ReturnType="Collection(String)" />
+    <FunctionImport Name="usp_GetPartConditionsAsXml" ReturnType="Collection(String)" />
+    <FunctionImport Name="usp_insertOfferablePicture">
+      <Parameter Name="OfferableId" Mode="In" Type="Int32" />
+      <Parameter Name="PictureUrl" Mode="In" Type="String" />
+      <Parameter Name="Alternate" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_UserSignup">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="PersonId" Mode="In" Type="Int32" />
+      <Parameter Name="SPId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetSPCategoriesAsXml" ReturnType="Collection(String)">
+      <Parameter Name="ParentID" Mode="In" Type="Int32" />
+      <Parameter Name="Title" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetSPTypesByCategoryAsXml" ReturnType="Collection(String)">
+      <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_getBadContentTypes" ReturnType="Collection(YJDbModel.usp_getBadContentTypes_Result)" />
+    <FunctionImport Name="usp_GetOfferableCategories" ReturnType="Collection(YJDbModel.usp_GetOfferableCategories_Result)">
+      <Parameter Name="ParentID" Mode="In" Type="Int32" />
+      <Parameter Name="Title" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetOfferableTypesByCategory" ReturnType="Collection(YJDbModel.usp_GetOfferableTypesByCategory_Result)">
+      <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="BackOrderPartCondition" EntityType="YJDbModel.BackOrderPartCondition" />
+    <EntitySet Name="BadContentTypes" EntityType="YJDbModel.BadContentTypes" />
+    <EntitySet Name="BankAccounts" EntityType="YJDbModel.BankAccounts" />
+    <EntitySet Name="BlackLists" EntityType="YJDbModel.BlackLists" />
+    <EntitySet Name="Brand" EntityType="YJDbModel.Brand" />
+    <EntitySet Name="CarBrands" EntityType="YJDbModel.CarBrands" />
+    <EntitySet Name="CarSeries" EntityType="YJDbModel.CarSeries" />
+    <EntitySet Name="CarSerieYears" EntityType="YJDbModel.CarSerieYears" />
+    <EntitySet Name="Cities" EntityType="YJDbModel.Cities" />
+    <EntitySet Name="Comments" EntityType="YJDbModel.Comments" />
+    <EntitySet Name="Countries" EntityType="YJDbModel.Countries" />
+    <EntitySet Name="DeliveryMethod" EntityType="YJDbModel.DeliveryMethod" />
+    <EntitySet Name="DeliveryTypes" EntityType="YJDbModel.DeliveryTypes" />
+    <EntitySet Name="Feedbaks" EntityType="YJDbModel.Feedbaks" />
+    <EntitySet Name="Fields" EntityType="YJDbModel.Fields" />
+    <EntitySet Name="FieldTypes" EntityType="YJDbModel.FieldTypes" />
+    <EntitySet Name="ForbiddenPhrases" EntityType="YJDbModel.ForbiddenPhrases" />
+    <EntitySet Name="LoginHistories" EntityType="YJDbModel.LoginHistories" />
+    <EntitySet Name="OfferableCategories" EntityType="YJDbModel.OfferableCategories" />
+    <EntitySet Name="OfferableDeliveryMethod" EntityType="YJDbModel.OfferableDeliveryMethod" />
+    <EntitySet Name="OfferablePaymentMethod" EntityType="YJDbModel.OfferablePaymentMethod" />
+    <EntitySet Name="OfferablePictures" EntityType="YJDbModel.OfferablePictures" />
+    <EntitySet Name="Offerables" EntityType="YJDbModel.Offerables" />
+    <EntitySet Name="OfferableTypeBrand" EntityType="YJDbModel.OfferableTypeBrand" />
+    <EntitySet Name="OfferableTypeProperties" EntityType="YJDbModel.OfferableTypeProperties" />
+    <EntitySet Name="OfferableTypePropertyValues" EntityType="YJDbModel.OfferableTypePropertyValues" />
+    <EntitySet Name="OfferableTypes" EntityType="YJDbModel.OfferableTypes" />
+    <EntitySet Name="OfferableVariation" EntityType="YJDbModel.OfferableVariation" />
+    <EntitySet Name="Order" EntityType="YJDbModel.Order" />
+    <EntitySet Name="OrderItem" EntityType="YJDbModel.OrderItem" />
+    <EntitySet Name="PartConditions" EntityType="YJDbModel.PartConditions" />
+    <EntitySet Name="Parts" EntityType="YJDbModel.Parts" />
+    <EntitySet Name="PartSupportedCars" EntityType="YJDbModel.PartSupportedCars" />
+    <EntitySet Name="PaymentMethod" EntityType="YJDbModel.PaymentMethod" />
+    <EntitySet Name="Penalties" EntityType="YJDbModel.Penalties" />
+    <EntitySet Name="Persons" EntityType="YJDbModel.Persons" />
+    <EntitySet Name="Pictures" EntityType="YJDbModel.Pictures" />
+    <EntitySet Name="PredefinedListValues" EntityType="YJDbModel.PredefinedListValues" />
+    <EntitySet Name="Prices" EntityType="YJDbModel.Prices" />
+    <EntitySet Name="PriceTypes" EntityType="YJDbModel.PriceTypes" />
+    <EntitySet Name="ProvinceCities" EntityType="YJDbModel.ProvinceCities" />
+    <EntitySet Name="Provinces" EntityType="YJDbModel.Provinces" />
+    <EntitySet Name="Qualities" EntityType="YJDbModel.Qualities" />
+    <EntitySet Name="Regions" EntityType="YJDbModel.Regions" />
+    <EntitySet Name="ReturnBackResults" EntityType="YJDbModel.ReturnBackResults" />
+    <EntitySet Name="ReturnBacks" EntityType="YJDbModel.ReturnBacks" />
+    <EntitySet Name="Roles" EntityType="YJDbModel.Roles" />
+    <EntitySet Name="SaleTerms" EntityType="YJDbModel.SaleTerms" />
+    <EntitySet Name="SearchHistories" EntityType="YJDbModel.SearchHistories" />
+    <EntitySet Name="SearchResults" EntityType="YJDbModel.SearchResults" />
+    <EntitySet Name="ServiceProviders" EntityType="YJDbModel.ServiceProviders" />
+    <EntitySet Name="Settings" EntityType="YJDbModel.Settings" />
+    <EntitySet Name="SPActivityFields" EntityType="YJDbModel.SPActivityFields" />
+    <EntitySet Name="SPCategories" EntityType="YJDbModel.SPCategories" />
+    <EntitySet Name="SPDeliveryMethod" EntityType="YJDbModel.SPDeliveryMethod" />
+    <EntitySet Name="SPPartner" EntityType="YJDbModel.SPPartner" />
+    <EntitySet Name="SPPaymentMethod" EntityType="YJDbModel.SPPaymentMethod" />
+    <EntitySet Name="SPTypes" EntityType="YJDbModel.SPTypes" />
+    <EntitySet Name="sysdiagrams" EntityType="YJDbModel.sysdiagrams" />
+    <EntitySet Name="Tag" EntityType="YJDbModel.Tag" />
+    <EntitySet Name="TechnicalQuestions" EntityType="YJDbModel.TechnicalQuestions" />
+    <EntitySet Name="Terms" EntityType="YJDbModel.Terms" />
+    <EntitySet Name="Transaction" EntityType="YJDbModel.Transaction" />
+    <EntitySet Name="TransactionDetail" EntityType="YJDbModel.TransactionDetail" />
+    <EntitySet Name="UserRoles" EntityType="YJDbModel.UserRoles" />
+    <EntitySet Name="Users" EntityType="YJDbModel.Users" />
+    <EntitySet Name="Vehicles" EntityType="YJDbModel.Vehicles" />
+    <AssociationSet Name="FK_BackOrderPartCondition_OrderItems" Association="YJDbModel.FK_BackOrderPartCondition_OrderItems">
+      <End Role="OrderItem" EntitySet="OrderItem" />
+      <End Role="BackOrderPartCondition" EntitySet="BackOrderPartCondition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BackOrderPartCondition_PartConditions" Association="YJDbModel.FK_BackOrderPartCondition_PartConditions">
+      <End Role="PartConditions" EntitySet="PartConditions" />
+      <End Role="BackOrderPartCondition" EntitySet="BackOrderPartCondition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BadContentTypes_Penalties" Association="YJDbModel.FK_BadContentTypes_Penalties">
+      <End Role="Penalties" EntitySet="Penalties" />
+      <End Role="BadContentTypes" EntitySet="BadContentTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_BadContentTypes" Association="YJDbModel.FK_Comments_BadContentTypes">
+      <End Role="BadContentTypes" EntitySet="BadContentTypes" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlackLists_ForbiddenPhrases" Association="YJDbModel.FK_BlackLists_ForbiddenPhrases">
+      <End Role="ForbiddenPhrases" EntitySet="ForbiddenPhrases" />
+      <End Role="BlackLists" EntitySet="BlackLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlackLists_Penalties" Association="YJDbModel.FK_BlackLists_Penalties">
+      <End Role="Penalties" EntitySet="Penalties" />
+      <End Role="BlackLists" EntitySet="BlackLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlackLists_Users" Association="YJDbModel.FK_BlackLists_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="BlackLists" EntitySet="BlackLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Brand_Countries" Association="YJDbModel.FK_Brand_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Brand" EntitySet="Brand" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offerables_OfferableBrand" Association="YJDbModel.FK_Offerables_OfferableBrand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="Offerables" EntitySet="Offerables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableTypeBrand_Brand" Association="YJDbModel.FK_OfferableTypeBrand_Brand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="OfferableTypeBrand" EntitySet="OfferableTypeBrand" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CarSeries_CarBrands" Association="YJDbModel.FK_CarSeries_CarBrands">
+      <End Role="CarBrands" EntitySet="CarBrands" />
+      <End Role="CarSeries" EntitySet="CarSeries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicles_CarBrands" Association="YJDbModel.FK_Vehicles_CarBrands">
+      <End Role="CarBrands" EntitySet="CarBrands" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CarSerieYears_CarSeries" Association="YJDbModel.FK_CarSerieYears_CarSeries">
+      <End Role="CarSeries" EntitySet="CarSeries" />
+      <End Role="CarSerieYears" EntitySet="CarSerieYears" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartSupportedCars_CarSerieYears" Association="YJDbModel.FK_PartSupportedCars_CarSerieYears">
+      <End Role="CarSerieYears" EntitySet="CarSerieYears" />
+      <End Role="PartSupportedCars" EntitySet="PartSupportedCars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SearchHistories_CarSerieYears" Association="YJDbModel.FK_SearchHistories_CarSerieYears">
+      <End Role="CarSerieYears" EntitySet="CarSerieYears" />
+      <End Role="SearchHistories" EntitySet="SearchHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPActivityFields_CarSerieYears" Association="YJDbModel.FK_SPActivityFields_CarSerieYears">
+      <End Role="CarSerieYears" EntitySet="CarSerieYears" />
+      <End Role="SPActivityFields" EntitySet="SPActivityFields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offerables_Cities" Association="YJDbModel.FK_Offerables_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Offerables" EntitySet="Offerables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Persons_Cities" Association="YJDbModel.FK_Persons_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Persons" EntitySet="Persons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProvinceCities_Cities" Association="YJDbModel.FK_ProvinceCities_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="ProvinceCities" EntitySet="ProvinceCities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SearchHistories_Cities" Association="YJDbModel.FK_SearchHistories_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="SearchHistories" EntitySet="SearchHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceProviders_Cities" Association="YJDbModel.FK_ServiceProviders_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_Offerables" Association="YJDbModel.FK_Comments_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_ServiceProviders" Association="YJDbModel.FK_Comments_ServiceProviders">
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_Users" Association="YJDbModel.FK_Comments_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Favorites_TechnicalQuestions" Association="YJDbModel.FK_Favorites_TechnicalQuestions">
+      <End Role="TechnicalQuestions" EntitySet="TechnicalQuestions" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableDeliveryMethod_DeliveryMethod" Association="YJDbModel.FK_OfferableDeliveryMethod_DeliveryMethod">
+      <End Role="DeliveryMethod" EntitySet="DeliveryMethod" />
+      <End Role="OfferableDeliveryMethod" EntitySet="OfferableDeliveryMethod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_DeliveryMethod" Association="YJDbModel.FK_Order_DeliveryMethod">
+      <End Role="DeliveryMethod" EntitySet="DeliveryMethod" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPDeliveryMethod_DeliveryMethod" Association="YJDbModel.FK_SPDeliveryMethod_DeliveryMethod">
+      <End Role="DeliveryMethod" EntitySet="DeliveryMethod" />
+      <End Role="SPDeliveryMethod" EntitySet="SPDeliveryMethod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fields_FieldTypes" Association="YJDbModel.FK_Fields_FieldTypes">
+      <End Role="FieldTypes" EntitySet="FieldTypes" />
+      <End Role="Fields" EntitySet="Fields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableTypeProperties_Fields" Association="YJDbModel.FK_OfferableTypeProperties_Fields">
+      <End Role="Fields" EntitySet="Fields" />
+      <End Role="OfferableTypeProperties" EntitySet="OfferableTypeProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableTypePropertyValues_Fields" Association="YJDbModel.FK_OfferableTypePropertyValues_Fields">
+      <End Role="Fields" EntitySet="Fields" />
+      <End Role="OfferableTypePropertyValues" EntitySet="OfferableTypePropertyValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PredefinedListValues_Fields" Association="YJDbModel.FK_PredefinedListValues_Fields">
+      <End Role="Fields" EntitySet="Fields" />
+      <End Role="PredefinedListValues" EntitySet="PredefinedListValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ForbiddenPhrases_Penalties" Association="YJDbModel.FK_ForbiddenPhrases_Penalties">
+      <End Role="Penalties" EntitySet="Penalties" />
+      <End Role="ForbiddenPhrases" EntitySet="ForbiddenPhrases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginHistories_Users" Association="YJDbModel.FK_LoginHistories_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="LoginHistories" EntitySet="LoginHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableCategories_OfferableCategories" Association="YJDbModel.FK_OfferableCategories_OfferableCategories">
+      <End Role="OfferableCategories" EntitySet="OfferableCategories" />
+      <End Role="OfferableCategories1" EntitySet="OfferableCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableTypes_OfferableCategories" Association="YJDbModel.FK_OfferableTypes_OfferableCategories">
+      <End Role="OfferableCategories" EntitySet="OfferableCategories" />
+      <End Role="OfferableTypes" EntitySet="OfferableTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Parts_OfferableCategories" Association="YJDbModel.FK_Parts_OfferableCategories">
+      <End Role="OfferableCategories" EntitySet="OfferableCategories" />
+      <End Role="Parts" EntitySet="Parts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPActivityFields_OfferableCategories" Association="YJDbModel.FK_SPActivityFields_OfferableCategories">
+      <End Role="OfferableCategories" EntitySet="OfferableCategories" />
+      <End Role="SPActivityFields" EntitySet="SPActivityFields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPActivityFields_OfferableCategories1" Association="YJDbModel.FK_SPActivityFields_OfferableCategories1">
+      <End Role="OfferableCategories" EntitySet="OfferableCategories" />
+      <End Role="SPActivityFields" EntitySet="SPActivityFields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableDeliveryMethod_Offerables" Association="YJDbModel.FK_OfferableDeliveryMethod_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="OfferableDeliveryMethod" EntitySet="OfferableDeliveryMethod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferablePaymentMethod_Offerables" Association="YJDbModel.FK_OfferablePaymentMethod_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="OfferablePaymentMethod" EntitySet="OfferablePaymentMethod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferablePaymentMethod_PaymentMethod" Association="YJDbModel.FK_OfferablePaymentMethod_PaymentMethod">
+      <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+      <End Role="OfferablePaymentMethod" EntitySet="OfferablePaymentMethod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferablePictures_Offerables" Association="YJDbModel.FK_OfferablePictures_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="OfferablePictures" EntitySet="OfferablePictures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferablePictures_Pictures" Association="YJDbModel.FK_OfferablePictures_Pictures">
+      <End Role="Pictures" EntitySet="Pictures" />
+      <End Role="OfferablePictures" EntitySet="OfferablePictures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offerables_OfferableTypes" Association="YJDbModel.FK_Offerables_OfferableTypes">
+      <End Role="OfferableTypes" EntitySet="OfferableTypes" />
+      <End Role="Offerables" EntitySet="Offerables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offerables_Provinces" Association="YJDbModel.FK_Offerables_Provinces">
+      <End Role="Provinces" EntitySet="Provinces" />
+      <End Role="Offerables" EntitySet="Offerables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offerables_ServiceProviders" Association="YJDbModel.FK_Offerables_ServiceProviders">
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+      <End Role="Offerables" EntitySet="Offerables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offerables_Users" Association="YJDbModel.FK_Offerables_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Offerables" EntitySet="Offerables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableTypePropertyValues_Offerables" Association="YJDbModel.FK_OfferableTypePropertyValues_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="OfferableTypePropertyValues" EntitySet="OfferableTypePropertyValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableVariation_Offerables" Association="YJDbModel.FK_OfferableVariation_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="OfferableVariation" EntitySet="OfferableVariation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_Offerables" Association="YJDbModel.FK_OrderItems_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="OrderItem" EntitySet="OrderItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Parts_Offerables" Association="YJDbModel.FK_Parts_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="Parts" EntitySet="Parts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tags_Offerables" Association="YJDbModel.FK_Tags_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="Tag" EntitySet="Tag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicles_Offerables" Association="YJDbModel.FK_Vehicles_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableTypeBrand_OfferableTypes" Association="YJDbModel.FK_OfferableTypeBrand_OfferableTypes">
+      <End Role="OfferableTypes" EntitySet="OfferableTypes" />
+      <End Role="OfferableTypeBrand" EntitySet="OfferableTypeBrand" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableTypeProperties_OfferableTypes" Association="YJDbModel.FK_OfferableTypeProperties_OfferableTypes">
+      <End Role="OfferableTypes" EntitySet="OfferableTypes" />
+      <End Role="OfferableTypeProperties" EntitySet="OfferableTypeProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableTypes_OfferableTypes" Association="YJDbModel.FK_OfferableTypes_OfferableTypes">
+      <End Role="OfferableTypes" EntitySet="OfferableTypes" />
+      <End Role="OfferableTypes1" EntitySet="OfferableTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SearchHistories_OfferableTypes" Association="YJDbModel.FK_SearchHistories_OfferableTypes">
+      <End Role="OfferableTypes" EntitySet="OfferableTypes" />
+      <End Role="SearchHistories" EntitySet="SearchHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPActivityFields_OfferableTypes" Association="YJDbModel.FK_SPActivityFields_OfferableTypes">
+      <End Role="OfferableTypes" EntitySet="OfferableTypes" />
+      <End Role="SPActivityFields" EntitySet="SPActivityFields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableVariation_Prices" Association="YJDbModel.FK_OfferableVariation_Prices">
+      <End Role="Prices" EntitySet="Prices" />
+      <End Role="OfferableVariation" EntitySet="OfferableVariation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_PaymentMethod" Association="YJDbModel.FK_Order_PaymentMethod">
+      <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_Orders" Association="YJDbModel.FK_OrderItems_Orders">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="OrderItem" EntitySet="OrderItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ServiceProviders" Association="YJDbModel.FK_Orders_ServiceProviders">
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Users" Association="YJDbModel.FK_Orders_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Parts_PartConditions" Association="YJDbModel.FK_Parts_PartConditions">
+      <End Role="PartConditions" EntitySet="PartConditions" />
+      <End Role="Parts" EntitySet="Parts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicles_PartConditions" Association="YJDbModel.FK_Vehicles_PartConditions">
+      <End Role="PartConditions" EntitySet="PartConditions" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Parts_Qualities" Association="YJDbModel.FK_Parts_Qualities">
+      <End Role="Qualities" EntitySet="Qualities" />
+      <End Role="Parts" EntitySet="Parts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartSupportedCars_Parts" Association="YJDbModel.FK_PartSupportedCars_Parts">
+      <End Role="Parts" EntitySet="Parts" />
+      <End Role="PartSupportedCars" EntitySet="PartSupportedCars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPPaymentMethod_PaymentMethod" Association="YJDbModel.FK_SPPaymentMethod_PaymentMethod">
+      <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+      <End Role="SPPaymentMethod" EntitySet="SPPaymentMethod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Persons_Provinces" Association="YJDbModel.FK_Persons_Provinces">
+      <End Role="Provinces" EntitySet="Provinces" />
+      <End Role="Persons" EntitySet="Persons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Persons" Association="YJDbModel.FK_Users_Persons">
+      <End Role="Persons" EntitySet="Persons" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Prices_PriceTypes" Association="YJDbModel.FK_Prices_PriceTypes">
+      <End Role="PriceTypes" EntitySet="PriceTypes" />
+      <End Role="Prices" EntitySet="Prices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProvinceCities_Provinces" Association="YJDbModel.FK_ProvinceCities_Provinces">
+      <End Role="Provinces" EntitySet="Provinces" />
+      <End Role="ProvinceCities" EntitySet="ProvinceCities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SearchHistories_Provinces" Association="YJDbModel.FK_SearchHistories_Provinces">
+      <End Role="Provinces" EntitySet="Provinces" />
+      <End Role="SearchHistories" EntitySet="SearchHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceProviders_Provinces" Association="YJDbModel.FK_ServiceProviders_Provinces">
+      <End Role="Provinces" EntitySet="Provinces" />
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRoles_Roles" Association="YJDbModel.FK_UserRoles_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="UserRoles" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SearchHistories_Users" Association="YJDbModel.FK_SearchHistories_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="SearchHistories" EntitySet="SearchHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceProviders_SPTypes" Association="YJDbModel.FK_ServiceProviders_SPTypes">
+      <End Role="SPTypes" EntitySet="SPTypes" />
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPActivityFields_ServiceProviders" Association="YJDbModel.FK_SPActivityFields_ServiceProviders">
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+      <End Role="SPActivityFields" EntitySet="SPActivityFields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPDeliveryMethod_ServiceProviders" Association="YJDbModel.FK_SPDeliveryMethod_ServiceProviders">
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+      <End Role="SPDeliveryMethod" EntitySet="SPDeliveryMethod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPPartner_ServiceProviders" Association="YJDbModel.FK_SPPartner_ServiceProviders">
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+      <End Role="SPPartner" EntitySet="SPPartner" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPPartner_ServiceProviders1" Association="YJDbModel.FK_SPPartner_ServiceProviders1">
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+      <End Role="SPPartner" EntitySet="SPPartner" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPPaymentMethod_ServiceProviders" Association="YJDbModel.FK_SPPaymentMethod_ServiceProviders">
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+      <End Role="SPPaymentMethod" EntitySet="SPPaymentMethod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ServiceProviders" Association="YJDbModel.FK_Users_ServiceProviders">
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPCategories_SPCategories" Association="YJDbModel.FK_SPCategories_SPCategories">
+      <End Role="SPCategories" EntitySet="SPCategories" />
+      <End Role="SPCategories1" EntitySet="SPCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPTypes_SPCategories" Association="YJDbModel.FK_SPTypes_SPCategories">
+      <End Role="SPCategories" EntitySet="SPCategories" />
+      <End Role="SPTypes" EntitySet="SPTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRoles_Users" Association="YJDbModel.FK_UserRoles_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserRoles" EntitySet="UserRoles" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="usp_GetVehicleTypeId_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="usp_getBadContentTypes_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="PenaltyRef" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_GetOfferableCategories_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="25" />
+    <Property Type="Int32" Name="ParentRef" Nullable="true" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Notes" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="PhotoUrl" Nullable="true" MaxLength="1024" />
+  </ComplexType>
+  <ComplexType Name="usp_GetOfferableTypesByCategory_Result">
+    <Property Type="Int32" Name="C_Id" Nullable="false" />
+    <Property Type="String" Name="C_Title" Nullable="false" MaxLength="25" />
+    <Property Type="Int16" Name="C_Priority" Nullable="true" />
+    <Property Type="String" Name="C_PhotoUrl" Nullable="true" MaxLength="1024" />
+  </ComplexType>
+  <EntityType Name="BackOrderPartCondition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConditionRef" Type="Int32" Nullable="false" />
+    <Property Name="OrderItemRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="OrderItem" Relationship="YJDbModel.FK_BackOrderPartCondition_OrderItems" FromRole="BackOrderPartCondition" ToRole="OrderItem" />
+    <NavigationProperty Name="PartConditions" Relationship="YJDbModel.FK_BackOrderPartCondition_PartConditions" FromRole="BackOrderPartCondition" ToRole="PartConditions" />
+  </EntityType>
+  <EntityType Name="BadContentTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PenaltyRef" Type="Int32" Nullable="false" />
+    <Property Name="Severity" Type="Byte" />
+    <NavigationProperty Name="Penalties" Relationship="YJDbModel.FK_BadContentTypes_Penalties" FromRole="BadContentTypes" ToRole="Penalties" />
+    <NavigationProperty Name="Comments" Relationship="YJDbModel.FK_Comments_BadContentTypes" FromRole="BadContentTypes" ToRole="Comments" />
+  </EntityType>
+  <EntityType Name="BankAccounts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SPRef" Type="Int32" />
+    <Property Name="BankName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="BranchName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="BranchCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="AccountNo" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="AccessCartNo" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="UserRef" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BlackLists">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserRef" Type="Int32" />
+    <Property Name="Reason" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="PenaltyRef" Type="Int32" Nullable="false" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ForbidenPhraseRef" Type="Int32" />
+    <Property Name="IpAddress" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="BadContentTypeRef" Type="Int32" />
+    <Property Name="MACAddress" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceIMEI" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ForbiddenPhrases" Relationship="YJDbModel.FK_BlackLists_ForbiddenPhrases" FromRole="BlackLists" ToRole="ForbiddenPhrases" />
+    <NavigationProperty Name="Penalties" Relationship="YJDbModel.FK_BlackLists_Penalties" FromRole="BlackLists" ToRole="Penalties" />
+    <NavigationProperty Name="Users" Relationship="YJDbModel.FK_BlackLists_Users" FromRole="BlackLists" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="CountryRef" Type="Int32" Nullable="false" />
+    <Property Name="HasGuarantee" Type="Boolean" Nullable="false" />
+    <Property Name="GuaranteeTerms" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Countries" Relationship="YJDbModel.FK_Brand_Countries" FromRole="Brand" ToRole="Countries" />
+    <NavigationProperty Name="Offerables" Relationship="YJDbModel.FK_Offerables_OfferableBrand" FromRole="Brand" ToRole="Offerables" />
+    <NavigationProperty Name="OfferableTypeBrand" Relationship="YJDbModel.FK_OfferableTypeBrand_Brand" FromRole="Brand" ToRole="OfferableTypeBrand" />
+  </EntityType>
+  <EntityType Name="CarBrands">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="CountryRef" Type="Int32" />
+    <Property Name="Manufacturer" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CarSeries" Relationship="YJDbModel.FK_CarSeries_CarBrands" FromRole="CarBrands" ToRole="CarSeries" />
+    <NavigationProperty Name="Vehicles" Relationship="YJDbModel.FK_Vehicles_CarBrands" FromRole="CarBrands" ToRole="Vehicles" />
+  </EntityType>
+  <EntityType Name="CarSeries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="CarBrandRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CarBrands" Relationship="YJDbModel.FK_CarSeries_CarBrands" FromRole="CarSeries" ToRole="CarBrands" />
+    <NavigationProperty Name="CarSerieYears" Relationship="YJDbModel.FK_CarSerieYears_CarSeries" FromRole="CarSeries" ToRole="CarSerieYears" />
+  </EntityType>
+  <EntityType Name="CarSerieYears">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="CarSerieRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CarSeries" Relationship="YJDbModel.FK_CarSerieYears_CarSeries" FromRole="CarSerieYears" ToRole="CarSeries" />
+    <NavigationProperty Name="PartSupportedCars" Relationship="YJDbModel.FK_PartSupportedCars_CarSerieYears" FromRole="CarSerieYears" ToRole="PartSupportedCars" />
+    <NavigationProperty Name="SearchHistories" Relationship="YJDbModel.FK_SearchHistories_CarSerieYears" FromRole="CarSerieYears" ToRole="SearchHistories" />
+    <NavigationProperty Name="SPActivityFields" Relationship="YJDbModel.FK_SPActivityFields_CarSerieYears" FromRole="CarSerieYears" ToRole="SPActivityFields" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="PrefixCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Offerables" Relationship="YJDbModel.FK_Offerables_Cities" FromRole="Cities" ToRole="Offerables" />
+    <NavigationProperty Name="Persons" Relationship="YJDbModel.FK_Persons_Cities" FromRole="Cities" ToRole="Persons" />
+    <NavigationProperty Name="ProvinceCities" Relationship="YJDbModel.FK_ProvinceCities_Cities" FromRole="Cities" ToRole="ProvinceCities" />
+    <NavigationProperty Name="SearchHistories" Relationship="YJDbModel.FK_SearchHistories_Cities" FromRole="Cities" ToRole="SearchHistories" />
+    <NavigationProperty Name="ServiceProviders" Relationship="YJDbModel.FK_ServiceProviders_Cities" FromRole="Cities" ToRole="ServiceProviders" />
+  </EntityType>
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserRef" Type="Int32" Nullable="false" />
+    <Property Name="SPRef" Type="Int32" />
+    <Property Name="OfferableRef" Type="Int32" />
+    <Property Name="QuestionRef" Type="Int32" />
+    <Property Name="IsFavorited" Type="Boolean" Nullable="false" />
+    <Property Name="IsShared" Type="Boolean" />
+    <Property Name="BadContentTypeRef" Type="Int32" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="IsLiked" Type="Boolean" />
+    <Property Name="IsDisliked" Type="Boolean" />
+    <NavigationProperty Name="BadContentTypes" Relationship="YJDbModel.FK_Comments_BadContentTypes" FromRole="Comments" ToRole="BadContentTypes" />
+    <NavigationProperty Name="Offerables" Relationship="YJDbModel.FK_Comments_Offerables" FromRole="Comments" ToRole="Offerables" />
+    <NavigationProperty Name="ServiceProviders" Relationship="YJDbModel.FK_Comments_ServiceProviders" FromRole="Comments" ToRole="ServiceProviders" />
+    <NavigationProperty Name="Users" Relationship="YJDbModel.FK_Comments_Users" FromRole="Comments" ToRole="Users" />
+    <NavigationProperty Name="TechnicalQuestions" Relationship="YJDbModel.FK_Favorites_TechnicalQuestions" FromRole="Comments" ToRole="TechnicalQuestions" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Brand" Relationship="YJDbModel.FK_Brand_Countries" FromRole="Countries" ToRole="Brand" />
+  </EntityType>
+  <EntityType Name="DeliveryMethod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="IsLocal" Type="Boolean" Nullable="false" />
+    <Property Name="Cost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Notes" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryTimeFrom" Type="Byte" Nullable="false" />
+    <Property Name="DeliveryTimeTo" Type="Byte" />
+    <Property Name="ImageUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="FreeIfOrderAbove" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="OfferableDeliveryMethod" Relationship="YJDbModel.FK_OfferableDeliveryMethod_DeliveryMethod" FromRole="DeliveryMethod" ToRole="OfferableDeliveryMethod" />
+    <NavigationProperty Name="Order" Relationship="YJDbModel.FK_Order_DeliveryMethod" FromRole="DeliveryMethod" ToRole="Order" />
+    <NavigationProperty Name="SPDeliveryMethod" Relationship="YJDbModel.FK_SPDeliveryMethod_DeliveryMethod" FromRole="DeliveryMethod" ToRole="SPDeliveryMethod" />
+  </EntityType>
+  <EntityType Name="DeliveryTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Feedbaks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="UserRef" Type="Int32" />
+    <Property Name="AppVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Fields">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsRequired" Type="Boolean" Nullable="false" />
+    <Property Name="Tooltip" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="ErrorMessage" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="ValidationExpression" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="TypeRef" Type="Int32" Nullable="false" />
+    <Property Name="MinChars" Type="Byte" />
+    <Property Name="Properties" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FieldTypes" Relationship="YJDbModel.FK_Fields_FieldTypes" FromRole="Fields" ToRole="FieldTypes" />
+    <NavigationProperty Name="OfferableTypeProperties" Relationship="YJDbModel.FK_OfferableTypeProperties_Fields" FromRole="Fields" ToRole="OfferableTypeProperties" />
+    <NavigationProperty Name="OfferableTypePropertyValues" Relationship="YJDbModel.FK_OfferableTypePropertyValues_Fields" FromRole="Fields" ToRole="OfferableTypePropertyValues" />
+    <NavigationProperty Name="PredefinedListValues" Relationship="YJDbModel.FK_PredefinedListValues_Fields" FromRole="Fields" ToRole="PredefinedListValues" />
+  </EntityType>
+  <EntityType Name="FieldTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Fields" Relationship="YJDbModel.FK_Fields_FieldTypes" FromRole="FieldTypes" ToRole="Fields" />
+  </EntityType>
+  <EntityType Name="ForbiddenPhrases">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Phrase" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="PenaltyRef" Type="Int32" Nullable="false" />
+    <Property Name="Severity" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="BlackLists" Relationship="YJDbModel.FK_BlackLists_ForbiddenPhrases" FromRole="ForbiddenPhrases" ToRole="BlackLists" />
+    <NavigationProperty Name="Penalties" Relationship="YJDbModel.FK_ForbiddenPhrases_Penalties" FromRole="ForbiddenPhrases" ToRole="Penalties" />
+  </EntityType>
+  <EntityType Name="LoginHistories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserRef" Type="Int32" />
+    <Property Name="IpAddress" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Using" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="AppVersion" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Users" Relationship="YJDbModel.FK_LoginHistories_Users" FromRole="LoginHistories" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="OfferableCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="ParentRef" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="OfferableCategories1" Relationship="YJDbModel.FK_OfferableCategories_OfferableCategories" FromRole="OfferableCategories" ToRole="OfferableCategories1" />
+    <NavigationProperty Name="OfferableCategories2" Relationship="YJDbModel.FK_OfferableCategories_OfferableCategories" FromRole="OfferableCategories1" ToRole="OfferableCategories" />
+    <NavigationProperty Name="OfferableTypes" Relationship="YJDbModel.FK_OfferableTypes_OfferableCategories" FromRole="OfferableCategories" ToRole="OfferableTypes" />
+    <NavigationProperty Name="Parts" Relationship="YJDbModel.FK_Parts_OfferableCategories" FromRole="OfferableCategories" ToRole="Parts" />
+    <NavigationProperty Name="SPActivityFields" Relationship="YJDbModel.FK_SPActivityFields_OfferableCategories" FromRole="OfferableCategories" ToRole="SPActivityFields" />
+    <NavigationProperty Name="SPActivityFields1" Relationship="YJDbModel.FK_SPActivityFields_OfferableCategories1" FromRole="OfferableCategories" ToRole="SPActivityFields" />
+  </EntityType>
+  <EntityType Name="OfferableDeliveryMethod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OfferableRef" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryMethodRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DeliveryMethod" Relationship="YJDbModel.FK_OfferableDeliveryMethod_DeliveryMethod" FromRole="OfferableDeliveryMethod" ToRole="DeliveryMethod" />
+    <NavigationProperty Name="Offerables" Relationship="YJDbModel.FK_OfferableDeliveryMethod_Offerables" FromRole="OfferableDeliveryMethod" ToRole="Offerables" />
+  </EntityType>
+  <EntityType Name="OfferablePaymentMethod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OfferableRef" Type="Int32" Nullable="false" />
+    <Property Name="PaymentMethodRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Offerables" Relationship="YJDbModel.FK_OfferablePaymentMethod_Offerables" FromRole="OfferablePaymentMethod" ToRole="Offerables" />
+    <NavigationProperty Name="PaymentMethod" Relationship="YJDbModel.FK_OfferablePaymentMethod_PaymentMethod" FromRole="OfferablePaymentMethod" ToRole="PaymentMethod" />
+  </EntityType>
+  <EntityType Name="OfferablePictures">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OfferableRef" Type="Int32" Nullable="false" />
+    <Property Name="PictureRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Offerables" Relationship="YJDbModel.FK_OfferablePictures_Offerables" FromRole="OfferablePictures" ToRole="Offerables" />
+    <NavigationProperty Name="Pictures" Relationship="YJDbModel.FK_OfferablePictures_Pictures" FromRole="OfferablePictures" ToRole="Pictures" />
+  </EntityType>
+  <EntityType Name="Offerables">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="SPRef" Type="Int32" Nullable="false" />
+    <Property Name="TypeRef" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="OperatorUserRef" Type="Int32" />
+    <Property Name="IsSpecial" Type="Boolean" />
+    <Property Name="ProvinceRef" Type="Int32" />
+    <Property Name="CityRef" Type="Int32" />
+    <Property Name="IsBackOrder" Type="Boolean" />
+    <Property Name="BrandRef" Type="Int32" />
+    <NavigationProperty Name="Brand" Relationship="YJDbModel.FK_Offerables_OfferableBrand" FromRole="Offerables" ToRole="Brand" />
+    <NavigationProperty Name="Cities" Relationship="YJDbModel.FK_Offerables_Cities" FromRole="Offerables" ToRole="Cities" />
+    <NavigationProperty Name="Comments" Relationship="YJDbModel.FK_Comments_Offerables" FromRole="Offerables" ToRole="Comments" />
+    <NavigationProperty Name="OfferableDeliveryMethod" Relationship="YJDbModel.FK_OfferableDeliveryMethod_Offerables" FromRole="Offerables" ToRole="OfferableDeliveryMethod" />
+    <NavigationProperty Name="OfferablePaymentMethod" Relationship="YJDbModel.FK_OfferablePaymentMethod_Offerables" FromRole="Offerables" ToRole="OfferablePaymentMethod" />
+    <NavigationProperty Name="OfferablePictures" Relationship="YJDbModel.FK_OfferablePictures_Offerables" FromRole="Offerables" ToRole="OfferablePictures" />
+    <NavigationProperty Name="OfferableTypes" Relationship="YJDbModel.FK_Offerables_OfferableTypes" FromRole="Offerables" ToRole="OfferableTypes" />
+    <NavigationProperty Name="Provinces" Relationship="YJDbModel.FK_Offerables_Provinces" FromRole="Offerables" ToRole="Provinces" />
+    <NavigationProperty Name="ServiceProviders" Relationship="YJDbModel.FK_Offerables_ServiceProviders" FromRole="Offerables" ToRole="ServiceProviders" />
+    <NavigationProperty Name="Users" Relationship="YJDbModel.FK_Offerables_Users" FromRole="Offerables" ToRole="Users" />
+    <NavigationProperty Name="OfferableTypePropertyValues" Relationship="YJDbModel.FK_OfferableTypePropertyValues_Offerables" FromRole="Offerables" ToRole="OfferableTypePropertyValues" />
+    <NavigationProperty Name="OfferableVariation" Relationship="YJDbModel.FK_OfferableVariation_Offerables" FromRole="Offerables" ToRole="OfferableVariation" />
+    <NavigationProperty Name="OrderItem" Relationship="YJDbModel.FK_OrderItems_Offerables" FromRole="Offerables" ToRole="OrderItem" />
+    <NavigationProperty Name="Parts" Relationship="YJDbModel.FK_Parts_Offerables" FromRole="Offerables" ToRole="Parts" />
+    <NavigationProperty Name="Tag" Relationship="YJDbModel.FK_Tags_Offerables" FromRole="Offerables" ToRole="Tag" />
+    <NavigationProperty Name="Vehicles" Relationship="YJDbModel.FK_Vehicles_Offerables" FromRole="Offerables" ToRole="Vehicles" />
+  </EntityType>
+  <EntityType Name="OfferableTypeBrand">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OfferableTypeRef" Type="Int32" Nullable="false" />
+    <Property Name="BrandRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Brand" Relationship="YJDbModel.FK_OfferableTypeBrand_Brand" FromRole="OfferableTypeBrand" ToRole="Brand" />
+    <NavigationProperty Name="OfferableTypes" Relationship="YJDbModel.FK_OfferableTypeBrand_OfferableTypes" FromRole="OfferableTypeBrand" ToRole="OfferableTypes" />
+  </EntityType>
+  <EntityType Name="OfferableTypeProperties">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OfferableTypeRef" Type="Int32" Nullable="false" />
+    <Property Name="Priority" Type="Int16" />
+    <Property Name="FieldRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Fields" Relationship="YJDbModel.FK_OfferableTypeProperties_Fields" FromRole="OfferableTypeProperties" ToRole="Fields" />
+    <NavigationProperty Name="OfferableTypes" Relationship="YJDbModel.FK_OfferableTypeProperties_OfferableTypes" FromRole="OfferableTypeProperties" ToRole="OfferableTypes" />
+  </EntityType>
+  <EntityType Name="OfferableTypePropertyValues">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="FieldRef" Type="Int32" Nullable="false" />
+    <Property Name="OfferableRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Fields" Relationship="YJDbModel.FK_OfferableTypePropertyValues_Fields" FromRole="OfferableTypePropertyValues" ToRole="Fields" />
+    <NavigationProperty Name="Offerables" Relationship="YJDbModel.FK_OfferableTypePropertyValues_Offerables" FromRole="OfferableTypePropertyValues" ToRole="Offerables" />
+  </EntityType>
+  <EntityType Name="OfferableTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryRef" Type="Int32" Nullable="false" />
+    <Property Name="Priority" Type="Int16" />
+    <Property Name="Rank" Type="Double" />
+    <Property Name="MinPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MaxPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PhotoUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="ParentRef" Type="Int32" />
+    <Property Name="IsVirtual" Type="Boolean" />
+    <NavigationProperty Name="OfferableCategories" Relationship="YJDbModel.FK_OfferableTypes_OfferableCategories" FromRole="OfferableTypes" ToRole="OfferableCategories" />
+    <NavigationProperty Name="Offerables" Relationship="YJDbModel.FK_Offerables_OfferableTypes" FromRole="OfferableTypes" ToRole="Offerables" />
+    <NavigationProperty Name="OfferableTypeBrand" Relationship="YJDbModel.FK_OfferableTypeBrand_OfferableTypes" FromRole="OfferableTypes" ToRole="OfferableTypeBrand" />
+    <NavigationProperty Name="OfferableTypeProperties" Relationship="YJDbModel.FK_OfferableTypeProperties_OfferableTypes" FromRole="OfferableTypes" ToRole="OfferableTypeProperties" />
+    <NavigationProperty Name="OfferableTypes1" Relationship="YJDbModel.FK_OfferableTypes_OfferableTypes" FromRole="OfferableTypes" ToRole="OfferableTypes1" />
+    <NavigationProperty Name="OfferableTypes2" Relationship="YJDbModel.FK_OfferableTypes_OfferableTypes" FromRole="OfferableTypes1" ToRole="OfferableTypes" />
+    <NavigationProperty Name="SearchHistories" Relationship="YJDbModel.FK_SearchHistories_OfferableTypes" FromRole="OfferableTypes" ToRole="SearchHistories" />
+    <NavigationProperty Name="SPActivityFields" Relationship="YJDbModel.FK_SPActivityFields_OfferableTypes" FromRole="OfferableTypes" ToRole="SPActivityFields" />
+  </EntityType>
+  <EntityType Name="OfferableVariation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PriceRef" Type="Int32" Nullable="false" />
+    <Property Name="OfferableRef" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int16" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Offerables" Relationship="YJDbModel.FK_OfferableVariation_Offerables" FromRole="OfferableVariation" ToRole="Offerables" />
+    <NavigationProperty Name="Prices" Relationship="YJDbModel.FK_OfferableVariation_Prices" FromRole="OfferableVariation" ToRole="Prices" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="UserRef" Type="Int32" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="SPRef" Type="Int32" />
+    <Property Name="DeliveryMethodRef" Type="Int32" Nullable="false" />
+    <Property Name="PaymentMethodRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DeliveryMethod" Relationship="YJDbModel.FK_Order_DeliveryMethod" FromRole="Order" ToRole="DeliveryMethod" />
+    <NavigationProperty Name="PaymentMethod" Relationship="YJDbModel.FK_Order_PaymentMethod" FromRole="Order" ToRole="PaymentMethod" />
+    <NavigationProperty Name="OrderItem" Relationship="YJDbModel.FK_OrderItems_Orders" FromRole="Order" ToRole="OrderItem" />
+    <NavigationProperty Name="ServiceProviders" Relationship="YJDbModel.FK_Orders_ServiceProviders" FromRole="Order" ToRole="ServiceProviders" />
+    <NavigationProperty Name="Users" Relationship="YJDbModel.FK_Orders_Users" FromRole="Order" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="OrderRef" Type="Int32" Nullable="false" />
+    <Property Name="OfferableRef" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int16" Nullable="false" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="BackOrderPartCondition" Relationship="YJDbModel.FK_BackOrderPartCondition_OrderItems" FromRole="OrderItem" ToRole="BackOrderPartCondition" />
+    <NavigationProperty Name="Offerables" Relationship="YJDbModel.FK_OrderItems_Offerables" FromRole="OrderItem" ToRole="Offerables" />
+    <NavigationProperty Name="Order" Relationship="YJDbModel.FK_OrderItems_Orders" FromRole="OrderItem" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="PartConditions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BackOrderPartCondition" Relationship="YJDbModel.FK_BackOrderPartCondition_PartConditions" FromRole="PartConditions" ToRole="BackOrderPartCondition" />
+    <NavigationProperty Name="Parts" Relationship="YJDbModel.FK_Parts_PartConditions" FromRole="PartConditions" ToRole="Parts" />
+    <NavigationProperty Name="Vehicles" Relationship="YJDbModel.FK_Vehicles_PartConditions" FromRole="PartConditions" ToRole="Vehicles" />
+  </EntityType>
+  <EntityType Name="Parts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ConditionRef" Type="Int32" />
+    <Property Name="TechnicalNo" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="HasGurantee" Type="Boolean" Nullable="false" />
+    <Property Name="QualityRef" Type="Int32" />
+    <Property Name="GurranteeTerms" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="DedicatedCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="ProcurementCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Barcode" Type="Int64" />
+    <Property Name="GuarranteeCompany" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="VehicleTypeRef" Type="Int32" />
+    <Property Name="ChasisNo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ShowQuantity" Type="Boolean" />
+    <Property Name="HasReturnBackGuarantee" Type="Boolean" />
+    <Property Name="ValidDays" Type="Byte" />
+    <Property Name="Weight" Type="Double" />
+    <Property Name="Length" Type="Byte" />
+    <Property Name="Width" Type="Byte" />
+    <Property Name="Height" Type="Byte" />
+    <NavigationProperty Name="OfferableCategories" Relationship="YJDbModel.FK_Parts_OfferableCategories" FromRole="Parts" ToRole="OfferableCategories" />
+    <NavigationProperty Name="Offerables" Relationship="YJDbModel.FK_Parts_Offerables" FromRole="Parts" ToRole="Offerables" />
+    <NavigationProperty Name="PartConditions" Relationship="YJDbModel.FK_Parts_PartConditions" FromRole="Parts" ToRole="PartConditions" />
+    <NavigationProperty Name="Qualities" Relationship="YJDbModel.FK_Parts_Qualities" FromRole="Parts" ToRole="Qualities" />
+    <NavigationProperty Name="PartSupportedCars" Relationship="YJDbModel.FK_PartSupportedCars_Parts" FromRole="Parts" ToRole="PartSupportedCars" />
+  </EntityType>
+  <EntityType Name="PartSupportedCars">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CarSeriYearRef" Type="Int32" Nullable="false" />
+    <Property Name="PartRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CarSerieYears" Relationship="YJDbModel.FK_PartSupportedCars_CarSerieYears" FromRole="PartSupportedCars" ToRole="CarSerieYears" />
+    <NavigationProperty Name="Parts" Relationship="YJDbModel.FK_PartSupportedCars_Parts" FromRole="PartSupportedCars" ToRole="Parts" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="Discount" Type="Byte" />
+    <NavigationProperty Name="OfferablePaymentMethod" Relationship="YJDbModel.FK_OfferablePaymentMethod_PaymentMethod" FromRole="PaymentMethod" ToRole="OfferablePaymentMethod" />
+    <NavigationProperty Name="Order" Relationship="YJDbModel.FK_Order_PaymentMethod" FromRole="PaymentMethod" ToRole="Order" />
+    <NavigationProperty Name="SPPaymentMethod" Relationship="YJDbModel.FK_SPPaymentMethod_PaymentMethod" FromRole="PaymentMethod" ToRole="SPPaymentMethod" />
+  </EntityType>
+  <EntityType Name="Penalties">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Severity" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="BadContentTypes" Relationship="YJDbModel.FK_BadContentTypes_Penalties" FromRole="Penalties" ToRole="BadContentTypes" />
+    <NavigationProperty Name="BlackLists" Relationship="YJDbModel.FK_BlackLists_Penalties" FromRole="Penalties" ToRole="BlackLists" />
+    <NavigationProperty Name="ForbiddenPhrases" Relationship="YJDbModel.FK_ForbiddenPhrases_Penalties" FromRole="Penalties" ToRole="ForbiddenPhrases" />
+  </EntityType>
+  <EntityType Name="Persons">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ProvinceRef" Type="Int32" Nullable="false" />
+    <Property Name="CityRef" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cities" Relationship="YJDbModel.FK_Persons_Cities" FromRole="Persons" ToRole="Cities" />
+    <NavigationProperty Name="Provinces" Relationship="YJDbModel.FK_Persons_Provinces" FromRole="Persons" ToRole="Provinces" />
+    <NavigationProperty Name="Users" Relationship="YJDbModel.FK_Users_Persons" FromRole="Persons" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Pictures">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Url" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="Alternate" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="OfferablePictures" Relationship="YJDbModel.FK_OfferablePictures_Pictures" FromRole="Pictures" ToRole="OfferablePictures" />
+  </EntityType>
+  <EntityType Name="PredefinedListValues">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Item" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="FieldRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Fields" Relationship="YJDbModel.FK_PredefinedListValues_Fields" FromRole="PredefinedListValues" ToRole="Fields" />
+  </EntityType>
+  <EntityType Name="Prices">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeRef" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ValidFrom" Type="DateTime" Precision="3" />
+    <Property Name="ValidTo" Type="DateTime" Precision="3" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="OldPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CoWorkerPrice" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="OfferableVariation" Relationship="YJDbModel.FK_OfferableVariation_Prices" FromRole="Prices" ToRole="OfferableVariation" />
+    <NavigationProperty Name="PriceTypes" Relationship="YJDbModel.FK_Prices_PriceTypes" FromRole="Prices" ToRole="PriceTypes" />
+  </EntityType>
+  <EntityType Name="PriceTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Prices" Relationship="YJDbModel.FK_Prices_PriceTypes" FromRole="PriceTypes" ToRole="Prices" />
+  </EntityType>
+  <EntityType Name="ProvinceCities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProvinceRef" Type="Int32" Nullable="false" />
+    <Property Name="CityRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cities" Relationship="YJDbModel.FK_ProvinceCities_Cities" FromRole="ProvinceCities" ToRole="Cities" />
+    <NavigationProperty Name="Provinces" Relationship="YJDbModel.FK_ProvinceCities_Provinces" FromRole="ProvinceCities" ToRole="Provinces" />
+  </EntityType>
+  <EntityType Name="Provinces">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="PrefixCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Offerables" Relationship="YJDbModel.FK_Offerables_Provinces" FromRole="Provinces" ToRole="Offerables" />
+    <NavigationProperty Name="Persons" Relationship="YJDbModel.FK_Persons_Provinces" FromRole="Provinces" ToRole="Persons" />
+    <NavigationProperty Name="ProvinceCities" Relationship="YJDbModel.FK_ProvinceCities_Provinces" FromRole="Provinces" ToRole="ProvinceCities" />
+    <NavigationProperty Name="SearchHistories" Relationship="YJDbModel.FK_SearchHistories_Provinces" FromRole="Provinces" ToRole="SearchHistories" />
+    <NavigationProperty Name="ServiceProviders" Relationship="YJDbModel.FK_ServiceProviders_Provinces" FromRole="Provinces" ToRole="ServiceProviders" />
+  </EntityType>
+  <EntityType Name="Qualities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Parts" Relationship="YJDbModel.FK_Parts_Qualities" FromRole="Qualities" ToRole="Parts" />
+  </EntityType>
+  <EntityType Name="Regions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ReturnBackResults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReturnBackRef" Type="Int32" Nullable="false" />
+    <Property Name="Answer" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="IsAccepted" Type="Boolean" Nullable="false" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="OperatorUserRef" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReturnBacks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SPRef" Type="Int32" Nullable="false" />
+    <Property Name="OfferableRef" Type="Int32" Nullable="false" />
+    <Property Name="UserRef" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Reason" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Culprit" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserRoles" Relationship="YJDbModel.FK_UserRoles_Roles" FromRole="Roles" ToRole="UserRoles" />
+  </EntityType>
+  <EntityType Name="SaleTerms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SPRef" Type="Int32" Nullable="false" />
+    <Property Name="OfferableRef" Type="Int32" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Precision="3" />
+    <Property Name="ValidTo" Type="DateTime" Precision="3" />
+    <Property Name="ApplicableFor" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="TermRef" Type="Int32" />
+    <Property Name="MaxQuantityPerBuyer" Type="Int16" />
+    <Property Name="Quantity" Type="Int16" Nullable="false" />
+    <Property Name="OperatorUserRef" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SearchHistories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Criteria" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UserRef" Type="Int32" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OfferableTypeRef" Type="Int32" Nullable="false" />
+    <Property Name="ProvinceRef" Type="Int32" Nullable="false" />
+    <Property Name="CarSerieYearRef" Type="Int32" />
+    <Property Name="CityRef" Type="Int32" />
+    <NavigationProperty Name="CarSerieYears" Relationship="YJDbModel.FK_SearchHistories_CarSerieYears" FromRole="SearchHistories" ToRole="CarSerieYears" />
+    <NavigationProperty Name="Cities" Relationship="YJDbModel.FK_SearchHistories_Cities" FromRole="SearchHistories" ToRole="Cities" />
+    <NavigationProperty Name="OfferableTypes" Relationship="YJDbModel.FK_SearchHistories_OfferableTypes" FromRole="SearchHistories" ToRole="OfferableTypes" />
+    <NavigationProperty Name="Provinces" Relationship="YJDbModel.FK_SearchHistories_Provinces" FromRole="SearchHistories" ToRole="Provinces" />
+    <NavigationProperty Name="Users" Relationship="YJDbModel.FK_SearchHistories_Users" FromRole="SearchHistories" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="SearchResults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SearchRef" Type="Int32" Nullable="false" />
+    <Property Name="OfferableRef" Type="Int32" />
+    <Property Name="SPRef" Type="Int32" />
+    <Property Name="IsClicked" Type="Boolean" Nullable="false" />
+    <Property Name="Priority" Type="Int16" />
+  </EntityType>
+  <EntityType Name="ServiceProviders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Fax" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ProvinceRef" Type="Int32" Nullable="false" />
+    <Property Name="CityRef" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="TypeRef" Type="Int32" Nullable="false" />
+    <Property Name="Logo" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="WebSite" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="Reputation" Type="Int16" />
+    <NavigationProperty Name="Cities" Relationship="YJDbModel.FK_ServiceProviders_Cities" FromRole="ServiceProviders" ToRole="Cities" />
+    <NavigationProperty Name="Comments" Relationship="YJDbModel.FK_Comments_ServiceProviders" FromRole="ServiceProviders" ToRole="Comments" />
+    <NavigationProperty Name="Offerables" Relationship="YJDbModel.FK_Offerables_ServiceProviders" FromRole="ServiceProviders" ToRole="Offerables" />
+    <NavigationProperty Name="Order" Relationship="YJDbModel.FK_Orders_ServiceProviders" FromRole="ServiceProviders" ToRole="Order" />
+    <NavigationProperty Name="Provinces" Relationship="YJDbModel.FK_ServiceProviders_Provinces" FromRole="ServiceProviders" ToRole="Provinces" />
+    <NavigationProperty Name="SPTypes" Relationship="YJDbModel.FK_ServiceProviders_SPTypes" FromRole="ServiceProviders" ToRole="SPTypes" />
+    <NavigationProperty Name="SPActivityFields" Relationship="YJDbModel.FK_SPActivityFields_ServiceProviders" FromRole="ServiceProviders" ToRole="SPActivityFields" />
+    <NavigationProperty Name="SPDeliveryMethod" Relationship="YJDbModel.FK_SPDeliveryMethod_ServiceProviders" FromRole="ServiceProviders" ToRole="SPDeliveryMethod" />
+    <NavigationProperty Name="SPPartner" Relationship="YJDbModel.FK_SPPartner_ServiceProviders" FromRole="ServiceProviders" ToRole="SPPartner" />
+    <NavigationProperty Name="SPPartner1" Relationship="YJDbModel.FK_SPPartner_ServiceProviders1" FromRole="ServiceProviders" ToRole="SPPartner" />
+    <NavigationProperty Name="SPPaymentMethod" Relationship="YJDbModel.FK_SPPaymentMethod_ServiceProviders" FromRole="ServiceProviders" ToRole="SPPaymentMethod" />
+    <NavigationProperty Name="Users" Relationship="YJDbModel.FK_Users_ServiceProviders" FromRole="ServiceProviders" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Settings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Key" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="SPRef" Type="Int32" />
+    <Property Name="ValidFrom" Type="DateTime" Precision="3" />
+    <Property Name="ValidTo" Type="DateTime" Precision="3" />
+    <Property Name="DotNetType" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SPActivityFields">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SPRef" Type="Int32" Nullable="false" />
+    <Property Name="CarSerieYearRef" Type="Int32" Nullable="false" />
+    <Property Name="OfferableTypeRef" Type="Int32" Nullable="false" />
+    <Property Name="OfferableCategoryRef" Type="Int32" Nullable="false" />
+    <Property Name="VehicleTypeRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CarSerieYears" Relationship="YJDbModel.FK_SPActivityFields_CarSerieYears" FromRole="SPActivityFields" ToRole="CarSerieYears" />
+    <NavigationProperty Name="OfferableCategories" Relationship="YJDbModel.FK_SPActivityFields_OfferableCategories" FromRole="SPActivityFields" ToRole="OfferableCategories" />
+    <NavigationProperty Name="OfferableCategories1" Relationship="YJDbModel.FK_SPActivityFields_OfferableCategories1" FromRole="SPActivityFields" ToRole="OfferableCategories" />
+    <NavigationProperty Name="OfferableTypes" Relationship="YJDbModel.FK_SPActivityFields_OfferableTypes" FromRole="SPActivityFields" ToRole="OfferableTypes" />
+    <NavigationProperty Name="ServiceProviders" Relationship="YJDbModel.FK_SPActivityFields_ServiceProviders" FromRole="SPActivityFields" ToRole="ServiceProviders" />
+  </EntityType>
+  <EntityType Name="SPCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="ParentRef" Type="Int32" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SPCategories1" Relationship="YJDbModel.FK_SPCategories_SPCategories" FromRole="SPCategories" ToRole="SPCategories1" />
+    <NavigationProperty Name="SPCategories2" Relationship="YJDbModel.FK_SPCategories_SPCategories" FromRole="SPCategories1" ToRole="SPCategories" />
+    <NavigationProperty Name="SPTypes" Relationship="YJDbModel.FK_SPTypes_SPCategories" FromRole="SPCategories" ToRole="SPTypes" />
+  </EntityType>
+  <EntityType Name="SPDeliveryMethod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SPRef" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryMethodRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DeliveryMethod" Relationship="YJDbModel.FK_SPDeliveryMethod_DeliveryMethod" FromRole="SPDeliveryMethod" ToRole="DeliveryMethod" />
+    <NavigationProperty Name="ServiceProviders" Relationship="YJDbModel.FK_SPDeliveryMethod_ServiceProviders" FromRole="SPDeliveryMethod" ToRole="ServiceProviders" />
+  </EntityType>
+  <EntityType Name="SPPartner">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SPRef" Type="Int32" Nullable="false" />
+    <Property Name="PartnerSPRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ServiceProviders" Relationship="YJDbModel.FK_SPPartner_ServiceProviders" FromRole="SPPartner" ToRole="ServiceProviders" />
+    <NavigationProperty Name="ServiceProviders1" Relationship="YJDbModel.FK_SPPartner_ServiceProviders1" FromRole="SPPartner" ToRole="ServiceProviders" />
+  </EntityType>
+  <EntityType Name="SPPaymentMethod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SPRef" Type="Int32" Nullable="false" />
+    <Property Name="PaymentMethodRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PaymentMethod" Relationship="YJDbModel.FK_SPPaymentMethod_PaymentMethod" FromRole="SPPaymentMethod" ToRole="PaymentMethod" />
+    <NavigationProperty Name="ServiceProviders" Relationship="YJDbModel.FK_SPPaymentMethod_ServiceProviders" FromRole="SPPaymentMethod" ToRole="ServiceProviders" />
+  </EntityType>
+  <EntityType Name="SPTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="SPCategoryRef" Type="Int32" />
+    <NavigationProperty Name="ServiceProviders" Relationship="YJDbModel.FK_ServiceProviders_SPTypes" FromRole="SPTypes" ToRole="ServiceProviders" />
+    <NavigationProperty Name="SPCategories" Relationship="YJDbModel.FK_SPTypes_SPCategories" FromRole="SPTypes" ToRole="SPCategories" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tag">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="OfferableRef" Type="Int32" Nullable="false" />
+    <Property Name="Tag1" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Offerables" Relationship="YJDbModel.FK_Tags_Offerables" FromRole="Tag" ToRole="Offerables" />
+  </EntityType>
+  <EntityType Name="TechnicalQuestions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Question" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Comments" Relationship="YJDbModel.FK_Favorites_TechnicalQuestions" FromRole="TechnicalQuestions" ToRole="Comments" />
+  </EntityType>
+  <EntityType Name="Terms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BankAccountRef" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Regarding" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TransactionDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="TransactionRef" Type="Int32" Nullable="false" />
+    <Property Name="OrderRef" Type="Int32" />
+    <Property Name="ReturnbackResultRef" Type="Int32" />
+  </EntityType>
+  <EntityType Name="UserRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserRef" Type="Int32" Nullable="false" />
+    <Property Name="RoleRef" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="OperatorUserRef" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Roles" Relationship="YJDbModel.FK_UserRoles_Roles" FromRole="UserRoles" ToRole="Roles" />
+    <NavigationProperty Name="Users" Relationship="YJDbModel.FK_UserRoles_Users" FromRole="UserRoles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PersonRef" Type="Int32" />
+    <Property Name="SPRef" Type="Int32" />
+    <Property Name="ReferrerRef" Type="Int32" />
+    <Property Name="Reputation" Type="Int16" />
+    <NavigationProperty Name="BlackLists" Relationship="YJDbModel.FK_BlackLists_Users" FromRole="Users" ToRole="BlackLists" />
+    <NavigationProperty Name="Comments" Relationship="YJDbModel.FK_Comments_Users" FromRole="Users" ToRole="Comments" />
+    <NavigationProperty Name="LoginHistories" Relationship="YJDbModel.FK_LoginHistories_Users" FromRole="Users" ToRole="LoginHistories" />
+    <NavigationProperty Name="Offerables" Relationship="YJDbModel.FK_Offerables_Users" FromRole="Users" ToRole="Offerables" />
+    <NavigationProperty Name="Order" Relationship="YJDbModel.FK_Orders_Users" FromRole="Users" ToRole="Order" />
+    <NavigationProperty Name="Persons" Relationship="YJDbModel.FK_Users_Persons" FromRole="Users" ToRole="Persons" />
+    <NavigationProperty Name="SearchHistories" Relationship="YJDbModel.FK_SearchHistories_Users" FromRole="Users" ToRole="SearchHistories" />
+    <NavigationProperty Name="ServiceProviders" Relationship="YJDbModel.FK_Users_ServiceProviders" FromRole="Users" ToRole="ServiceProviders" />
+    <NavigationProperty Name="UserRoles" Relationship="YJDbModel.FK_UserRoles_Users" FromRole="Users" ToRole="UserRoles" />
+  </EntityType>
+  <EntityType Name="Vehicles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ConditionRef" Type="Int32" Nullable="false" />
+    <Property Name="CarBrandRef" Type="Int32" Nullable="false" />
+    <Property Name="UsedKiloMeters" Type="Int64" />
+    <Property Name="GearTypeAuto" Type="Boolean" Nullable="false" />
+    <Property Name="FuelType" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="ChasisNo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CarBrands" Relationship="YJDbModel.FK_Vehicles_CarBrands" FromRole="Vehicles" ToRole="CarBrands" />
+    <NavigationProperty Name="Offerables" Relationship="YJDbModel.FK_Vehicles_Offerables" FromRole="Vehicles" ToRole="Offerables" />
+    <NavigationProperty Name="PartConditions" Relationship="YJDbModel.FK_Vehicles_PartConditions" FromRole="Vehicles" ToRole="PartConditions" />
+  </EntityType>
+  <Association Name="FK_BackOrderPartCondition_OrderItems">
+    <End Type="YJDbModel.OrderItem" Role="OrderItem" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="YJDbModel.BackOrderPartCondition" Role="BackOrderPartCondition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BackOrderPartCondition">
+        <PropertyRef Name="OrderItemRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BackOrderPartCondition_PartConditions">
+    <End Type="YJDbModel.PartConditions" Role="PartConditions" Multiplicity="1" />
+    <End Type="YJDbModel.BackOrderPartCondition" Role="BackOrderPartCondition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartConditions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BackOrderPartCondition">
+        <PropertyRef Name="ConditionRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BadContentTypes_Penalties">
+    <End Type="YJDbModel.Penalties" Role="Penalties" Multiplicity="1" />
+    <End Type="YJDbModel.BadContentTypes" Role="BadContentTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Penalties">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BadContentTypes">
+        <PropertyRef Name="PenaltyRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_BadContentTypes">
+    <End Type="YJDbModel.BadContentTypes" Role="BadContentTypes" Multiplicity="0..1" />
+    <End Type="YJDbModel.Comments" Role="Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BadContentTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="BadContentTypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlackLists_ForbiddenPhrases">
+    <End Type="YJDbModel.ForbiddenPhrases" Role="ForbiddenPhrases" Multiplicity="0..1" />
+    <End Type="YJDbModel.BlackLists" Role="BlackLists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ForbiddenPhrases">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BlackLists">
+        <PropertyRef Name="ForbidenPhraseRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlackLists_Penalties">
+    <End Type="YJDbModel.Penalties" Role="Penalties" Multiplicity="1" />
+    <End Type="YJDbModel.BlackLists" Role="BlackLists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Penalties">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BlackLists">
+        <PropertyRef Name="PenaltyRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlackLists_Users">
+    <End Type="YJDbModel.Users" Role="Users" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="YJDbModel.BlackLists" Role="BlackLists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BlackLists">
+        <PropertyRef Name="UserRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Brand_Countries">
+    <End Type="YJDbModel.Countries" Role="Countries" Multiplicity="1" />
+    <End Type="YJDbModel.Brand" Role="Brand" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Brand">
+        <PropertyRef Name="CountryRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offerables_OfferableBrand">
+    <End Type="YJDbModel.Brand" Role="Brand" Multiplicity="0..1" />
+    <End Type="YJDbModel.Offerables" Role="Offerables" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offerables">
+        <PropertyRef Name="BrandRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableTypeBrand_Brand">
+    <End Type="YJDbModel.Brand" Role="Brand" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="YJDbModel.OfferableTypeBrand" Role="OfferableTypeBrand" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableTypeBrand">
+        <PropertyRef Name="BrandRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CarSeries_CarBrands">
+    <End Type="YJDbModel.CarBrands" Role="CarBrands" Multiplicity="1" />
+    <End Type="YJDbModel.CarSeries" Role="CarSeries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarBrands">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarSeries">
+        <PropertyRef Name="CarBrandRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicles_CarBrands">
+    <End Type="YJDbModel.CarBrands" Role="CarBrands" Multiplicity="1" />
+    <End Type="YJDbModel.Vehicles" Role="Vehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarBrands">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="CarBrandRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CarSerieYears_CarSeries">
+    <End Type="YJDbModel.CarSeries" Role="CarSeries" Multiplicity="1" />
+    <End Type="YJDbModel.CarSerieYears" Role="CarSerieYears" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarSeries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarSerieYears">
+        <PropertyRef Name="CarSerieRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartSupportedCars_CarSerieYears">
+    <End Type="YJDbModel.CarSerieYears" Role="CarSerieYears" Multiplicity="1" />
+    <End Type="YJDbModel.PartSupportedCars" Role="PartSupportedCars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarSerieYears">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartSupportedCars">
+        <PropertyRef Name="CarSeriYearRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SearchHistories_CarSerieYears">
+    <End Type="YJDbModel.CarSerieYears" Role="CarSerieYears" Multiplicity="0..1" />
+    <End Type="YJDbModel.SearchHistories" Role="SearchHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarSerieYears">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SearchHistories">
+        <PropertyRef Name="CarSerieYearRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPActivityFields_CarSerieYears">
+    <End Type="YJDbModel.CarSerieYears" Role="CarSerieYears" Multiplicity="1" />
+    <End Type="YJDbModel.SPActivityFields" Role="SPActivityFields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarSerieYears">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPActivityFields">
+        <PropertyRef Name="CarSerieYearRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offerables_Cities">
+    <End Type="YJDbModel.Cities" Role="Cities" Multiplicity="0..1" />
+    <End Type="YJDbModel.Offerables" Role="Offerables" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offerables">
+        <PropertyRef Name="CityRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Persons_Cities">
+    <End Type="YJDbModel.Cities" Role="Cities" Multiplicity="1" />
+    <End Type="YJDbModel.Persons" Role="Persons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Persons">
+        <PropertyRef Name="CityRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProvinceCities_Cities">
+    <End Type="YJDbModel.Cities" Role="Cities" Multiplicity="1" />
+    <End Type="YJDbModel.ProvinceCities" Role="ProvinceCities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProvinceCities">
+        <PropertyRef Name="CityRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SearchHistories_Cities">
+    <End Type="YJDbModel.Cities" Role="Cities" Multiplicity="0..1" />
+    <End Type="YJDbModel.SearchHistories" Role="SearchHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SearchHistories">
+        <PropertyRef Name="CityRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceProviders_Cities">
+    <End Type="YJDbModel.Cities" Role="Cities" Multiplicity="1" />
+    <End Type="YJDbModel.ServiceProviders" Role="ServiceProviders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceProviders">
+        <PropertyRef Name="CityRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_Offerables">
+    <End Type="YJDbModel.Offerables" Role="Offerables" Multiplicity="0..1" />
+    <End Type="YJDbModel.Comments" Role="Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="OfferableRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_ServiceProviders">
+    <End Type="YJDbModel.ServiceProviders" Role="ServiceProviders" Multiplicity="0..1" />
+    <End Type="YJDbModel.Comments" Role="Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceProviders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="SPRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_Users">
+    <End Type="YJDbModel.Users" Role="Users" Multiplicity="1" />
+    <End Type="YJDbModel.Comments" Role="Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="UserRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Favorites_TechnicalQuestions">
+    <End Type="YJDbModel.TechnicalQuestions" Role="TechnicalQuestions" Multiplicity="0..1" />
+    <End Type="YJDbModel.Comments" Role="Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TechnicalQuestions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="QuestionRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableDeliveryMethod_DeliveryMethod">
+    <End Type="YJDbModel.DeliveryMethod" Role="DeliveryMethod" Multiplicity="1" />
+    <End Type="YJDbModel.OfferableDeliveryMethod" Role="OfferableDeliveryMethod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeliveryMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableDeliveryMethod">
+        <PropertyRef Name="DeliveryMethodRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_DeliveryMethod">
+    <End Type="YJDbModel.DeliveryMethod" Role="DeliveryMethod" Multiplicity="1" />
+    <End Type="YJDbModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeliveryMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="DeliveryMethodRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPDeliveryMethod_DeliveryMethod">
+    <End Type="YJDbModel.DeliveryMethod" Role="DeliveryMethod" Multiplicity="1" />
+    <End Type="YJDbModel.SPDeliveryMethod" Role="SPDeliveryMethod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeliveryMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPDeliveryMethod">
+        <PropertyRef Name="DeliveryMethodRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fields_FieldTypes">
+    <End Type="YJDbModel.FieldTypes" Role="FieldTypes" Multiplicity="1" />
+    <End Type="YJDbModel.Fields" Role="Fields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FieldTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Fields">
+        <PropertyRef Name="TypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableTypeProperties_Fields">
+    <End Type="YJDbModel.Fields" Role="Fields" Multiplicity="1" />
+    <End Type="YJDbModel.OfferableTypeProperties" Role="OfferableTypeProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fields">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableTypeProperties">
+        <PropertyRef Name="FieldRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableTypePropertyValues_Fields">
+    <End Type="YJDbModel.Fields" Role="Fields" Multiplicity="1" />
+    <End Type="YJDbModel.OfferableTypePropertyValues" Role="OfferableTypePropertyValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fields">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableTypePropertyValues">
+        <PropertyRef Name="FieldRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PredefinedListValues_Fields">
+    <End Type="YJDbModel.Fields" Role="Fields" Multiplicity="1" />
+    <End Type="YJDbModel.PredefinedListValues" Role="PredefinedListValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fields">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PredefinedListValues">
+        <PropertyRef Name="FieldRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ForbiddenPhrases_Penalties">
+    <End Type="YJDbModel.Penalties" Role="Penalties" Multiplicity="1" />
+    <End Type="YJDbModel.ForbiddenPhrases" Role="ForbiddenPhrases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Penalties">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ForbiddenPhrases">
+        <PropertyRef Name="PenaltyRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoginHistories_Users">
+    <End Type="YJDbModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="YJDbModel.LoginHistories" Role="LoginHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LoginHistories">
+        <PropertyRef Name="UserRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableCategories_OfferableCategories">
+    <End Type="YJDbModel.OfferableCategories" Role="OfferableCategories" Multiplicity="0..1" />
+    <End Type="YJDbModel.OfferableCategories" Role="OfferableCategories1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableCategories1">
+        <PropertyRef Name="ParentRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableTypes_OfferableCategories">
+    <End Type="YJDbModel.OfferableCategories" Role="OfferableCategories" Multiplicity="1" />
+    <End Type="YJDbModel.OfferableTypes" Role="OfferableTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableTypes">
+        <PropertyRef Name="CategoryRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Parts_OfferableCategories">
+    <End Type="YJDbModel.OfferableCategories" Role="OfferableCategories" Multiplicity="0..1" />
+    <End Type="YJDbModel.Parts" Role="Parts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Parts">
+        <PropertyRef Name="VehicleTypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPActivityFields_OfferableCategories">
+    <End Type="YJDbModel.OfferableCategories" Role="OfferableCategories" Multiplicity="1" />
+    <End Type="YJDbModel.SPActivityFields" Role="SPActivityFields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPActivityFields">
+        <PropertyRef Name="OfferableCategoryRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPActivityFields_OfferableCategories1">
+    <End Type="YJDbModel.OfferableCategories" Role="OfferableCategories" Multiplicity="1" />
+    <End Type="YJDbModel.SPActivityFields" Role="SPActivityFields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPActivityFields">
+        <PropertyRef Name="VehicleTypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableDeliveryMethod_Offerables">
+    <End Type="YJDbModel.Offerables" Role="Offerables" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="YJDbModel.OfferableDeliveryMethod" Role="OfferableDeliveryMethod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableDeliveryMethod">
+        <PropertyRef Name="OfferableRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferablePaymentMethod_Offerables">
+    <End Type="YJDbModel.Offerables" Role="Offerables" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="YJDbModel.OfferablePaymentMethod" Role="OfferablePaymentMethod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferablePaymentMethod">
+        <PropertyRef Name="OfferableRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferablePaymentMethod_PaymentMethod">
+    <End Type="YJDbModel.PaymentMethod" Role="PaymentMethod" Multiplicity="1" />
+    <End Type="YJDbModel.OfferablePaymentMethod" Role="OfferablePaymentMethod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferablePaymentMethod">
+        <PropertyRef Name="PaymentMethodRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferablePictures_Offerables">
+    <End Type="YJDbModel.Offerables" Role="Offerables" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="YJDbModel.OfferablePictures" Role="OfferablePictures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferablePictures">
+        <PropertyRef Name="OfferableRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferablePictures_Pictures">
+    <End Type="YJDbModel.Pictures" Role="Pictures" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="YJDbModel.OfferablePictures" Role="OfferablePictures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pictures">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferablePictures">
+        <PropertyRef Name="PictureRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offerables_OfferableTypes">
+    <End Type="YJDbModel.OfferableTypes" Role="OfferableTypes" Multiplicity="1" />
+    <End Type="YJDbModel.Offerables" Role="Offerables" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offerables">
+        <PropertyRef Name="TypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offerables_Provinces">
+    <End Type="YJDbModel.Provinces" Role="Provinces" Multiplicity="0..1" />
+    <End Type="YJDbModel.Offerables" Role="Offerables" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provinces">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offerables">
+        <PropertyRef Name="ProvinceRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offerables_ServiceProviders">
+    <End Type="YJDbModel.ServiceProviders" Role="ServiceProviders" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="YJDbModel.Offerables" Role="Offerables" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceProviders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offerables">
+        <PropertyRef Name="SPRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offerables_Users">
+    <End Type="YJDbModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="YJDbModel.Offerables" Role="Offerables" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offerables">
+        <PropertyRef Name="OperatorUserRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableTypePropertyValues_Offerables">
+    <End Type="YJDbModel.Offerables" Role="Offerables" Multiplicity="1" />
+    <End Type="YJDbModel.OfferableTypePropertyValues" Role="OfferableTypePropertyValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableTypePropertyValues">
+        <PropertyRef Name="OfferableRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableVariation_Offerables">
+    <End Type="YJDbModel.Offerables" Role="Offerables" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="YJDbModel.OfferableVariation" Role="OfferableVariation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableVariation">
+        <PropertyRef Name="OfferableRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItems_Offerables">
+    <End Type="YJDbModel.Offerables" Role="Offerables" Multiplicity="1" />
+    <End Type="YJDbModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="OfferableRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Parts_Offerables">
+    <End Type="YJDbModel.Offerables" Role="Offerables" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="YJDbModel.Parts" Role="Parts" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Parts">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tags_Offerables">
+    <End Type="YJDbModel.Offerables" Role="Offerables" Multiplicity="1" />
+    <End Type="YJDbModel.Tag" Role="Tag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tag">
+        <PropertyRef Name="OfferableRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicles_Offerables">
+    <End Type="YJDbModel.Offerables" Role="Offerables" Multiplicity="1" />
+    <End Type="YJDbModel.Vehicles" Role="Vehicles" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableTypeBrand_OfferableTypes">
+    <End Type="YJDbModel.OfferableTypes" Role="OfferableTypes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="YJDbModel.OfferableTypeBrand" Role="OfferableTypeBrand" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableTypeBrand">
+        <PropertyRef Name="OfferableTypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableTypeProperties_OfferableTypes">
+    <End Type="YJDbModel.OfferableTypes" Role="OfferableTypes" Multiplicity="1" />
+    <End Type="YJDbModel.OfferableTypeProperties" Role="OfferableTypeProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableTypeProperties">
+        <PropertyRef Name="OfferableTypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableTypes_OfferableTypes">
+    <End Type="YJDbModel.OfferableTypes" Role="OfferableTypes" Multiplicity="0..1" />
+    <End Type="YJDbModel.OfferableTypes" Role="OfferableTypes1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableTypes1">
+        <PropertyRef Name="ParentRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SearchHistories_OfferableTypes">
+    <End Type="YJDbModel.OfferableTypes" Role="OfferableTypes" Multiplicity="1" />
+    <End Type="YJDbModel.SearchHistories" Role="SearchHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SearchHistories">
+        <PropertyRef Name="OfferableTypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPActivityFields_OfferableTypes">
+    <End Type="YJDbModel.OfferableTypes" Role="OfferableTypes" Multiplicity="1" />
+    <End Type="YJDbModel.SPActivityFields" Role="SPActivityFields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPActivityFields">
+        <PropertyRef Name="OfferableTypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableVariation_Prices">
+    <End Type="YJDbModel.Prices" Role="Prices" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="YJDbModel.OfferableVariation" Role="OfferableVariation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prices">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableVariation">
+        <PropertyRef Name="PriceRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_PaymentMethod">
+    <End Type="YJDbModel.PaymentMethod" Role="PaymentMethod" Multiplicity="1" />
+    <End Type="YJDbModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="PaymentMethodRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItems_Orders">
+    <End Type="YJDbModel.Order" Role="Order" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="YJDbModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="OrderRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ServiceProviders">
+    <End Type="YJDbModel.ServiceProviders" Role="ServiceProviders" Multiplicity="0..1" />
+    <End Type="YJDbModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceProviders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="SPRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Users">
+    <End Type="YJDbModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="YJDbModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="UserRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Parts_PartConditions">
+    <End Type="YJDbModel.PartConditions" Role="PartConditions" Multiplicity="0..1" />
+    <End Type="YJDbModel.Parts" Role="Parts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartConditions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Parts">
+        <PropertyRef Name="ConditionRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicles_PartConditions">
+    <End Type="YJDbModel.PartConditions" Role="PartConditions" Multiplicity="1" />
+    <End Type="YJDbModel.Vehicles" Role="Vehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartConditions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="ConditionRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Parts_Qualities">
+    <End Type="YJDbModel.Qualities" Role="Qualities" Multiplicity="0..1" />
+    <End Type="YJDbModel.Parts" Role="Parts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Qualities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Parts">
+        <PropertyRef Name="QualityRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartSupportedCars_Parts">
+    <End Type="YJDbModel.Parts" Role="Parts" Multiplicity="1" />
+    <End Type="YJDbModel.PartSupportedCars" Role="PartSupportedCars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Parts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartSupportedCars">
+        <PropertyRef Name="PartRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPPaymentMethod_PaymentMethod">
+    <End Type="YJDbModel.PaymentMethod" Role="PaymentMethod" Multiplicity="1" />
+    <End Type="YJDbModel.SPPaymentMethod" Role="SPPaymentMethod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPPaymentMethod">
+        <PropertyRef Name="PaymentMethodRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Persons_Provinces">
+    <End Type="YJDbModel.Provinces" Role="Provinces" Multiplicity="1" />
+    <End Type="YJDbModel.Persons" Role="Persons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provinces">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Persons">
+        <PropertyRef Name="ProvinceRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Persons">
+    <End Type="YJDbModel.Persons" Role="Persons" Multiplicity="0..1" />
+    <End Type="YJDbModel.Users" Role="Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persons">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="PersonRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Prices_PriceTypes">
+    <End Type="YJDbModel.PriceTypes" Role="PriceTypes" Multiplicity="1" />
+    <End Type="YJDbModel.Prices" Role="Prices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PriceTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Prices">
+        <PropertyRef Name="TypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProvinceCities_Provinces">
+    <End Type="YJDbModel.Provinces" Role="Provinces" Multiplicity="1" />
+    <End Type="YJDbModel.ProvinceCities" Role="ProvinceCities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provinces">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProvinceCities">
+        <PropertyRef Name="ProvinceRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SearchHistories_Provinces">
+    <End Type="YJDbModel.Provinces" Role="Provinces" Multiplicity="1" />
+    <End Type="YJDbModel.SearchHistories" Role="SearchHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provinces">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SearchHistories">
+        <PropertyRef Name="ProvinceRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceProviders_Provinces">
+    <End Type="YJDbModel.Provinces" Role="Provinces" Multiplicity="1" />
+    <End Type="YJDbModel.ServiceProviders" Role="ServiceProviders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provinces">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceProviders">
+        <PropertyRef Name="ProvinceRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRoles_Roles">
+    <End Type="YJDbModel.Roles" Role="Roles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="YJDbModel.UserRoles" Role="UserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRoles">
+        <PropertyRef Name="RoleRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SearchHistories_Users">
+    <End Type="YJDbModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="YJDbModel.SearchHistories" Role="SearchHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SearchHistories">
+        <PropertyRef Name="UserRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceProviders_SPTypes">
+    <End Type="YJDbModel.SPTypes" Role="SPTypes" Multiplicity="1" />
+    <End Type="YJDbModel.ServiceProviders" Role="ServiceProviders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceProviders">
+        <PropertyRef Name="TypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPActivityFields_ServiceProviders">
+    <End Type="YJDbModel.ServiceProviders" Role="ServiceProviders" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="YJDbModel.SPActivityFields" Role="SPActivityFields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceProviders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPActivityFields">
+        <PropertyRef Name="SPRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPDeliveryMethod_ServiceProviders">
+    <End Type="YJDbModel.ServiceProviders" Role="ServiceProviders" Multiplicity="1" />
+    <End Type="YJDbModel.SPDeliveryMethod" Role="SPDeliveryMethod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceProviders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPDeliveryMethod">
+        <PropertyRef Name="SPRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPPartner_ServiceProviders">
+    <End Type="YJDbModel.ServiceProviders" Role="ServiceProviders" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="YJDbModel.SPPartner" Role="SPPartner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceProviders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPPartner">
+        <PropertyRef Name="PartnerSPRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPPartner_ServiceProviders1">
+    <End Type="YJDbModel.ServiceProviders" Role="ServiceProviders" Multiplicity="1" />
+    <End Type="YJDbModel.SPPartner" Role="SPPartner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceProviders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPPartner">
+        <PropertyRef Name="SPRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPPaymentMethod_ServiceProviders">
+    <End Type="YJDbModel.ServiceProviders" Role="ServiceProviders" Multiplicity="1" />
+    <End Type="YJDbModel.SPPaymentMethod" Role="SPPaymentMethod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceProviders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPPaymentMethod">
+        <PropertyRef Name="SPRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_ServiceProviders">
+    <End Type="YJDbModel.ServiceProviders" Role="ServiceProviders" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="YJDbModel.Users" Role="Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceProviders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="SPRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPCategories_SPCategories">
+    <End Type="YJDbModel.SPCategories" Role="SPCategories" Multiplicity="0..1" />
+    <End Type="YJDbModel.SPCategories" Role="SPCategories1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPCategories1">
+        <PropertyRef Name="ParentRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPTypes_SPCategories">
+    <End Type="YJDbModel.SPCategories" Role="SPCategories" Multiplicity="0..1" />
+    <End Type="YJDbModel.SPTypes" Role="SPTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPTypes">
+        <PropertyRef Name="SPCategoryRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRoles_Users">
+    <End Type="YJDbModel.Users" Role="Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="YJDbModel.UserRoles" Role="UserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRoles">
+        <PropertyRef Name="UserRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

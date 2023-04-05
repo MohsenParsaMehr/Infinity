@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9273bbd777254bdfa7484958766fc8cc" Name="Diagram1">
+        <EntityTypeShape EntityType="InfinityModel.Address" Width="1.5" PointX="10.5" PointY="44.125" />
+        <EntityTypeShape EntityType="InfinityModel.BackOrderPartCondition" Width="1.5" PointX="18" PointY="42" />
+        <EntityTypeShape EntityType="InfinityModel.BadContentType" Width="1.5" PointX="11.25" PointY="51.375" />
+        <EntityTypeShape EntityType="InfinityModel.BankAccount" Width="1.5" PointX="11.25" PointY="63.875" />
+        <EntityTypeShape EntityType="InfinityModel.BlackList" Width="1.5" PointX="15.5" PointY="43.5" />
+        <EntityTypeShape EntityType="InfinityModel.Brand" Width="1.5" PointX="8.25" PointY="30.375" />
+        <EntityTypeShape EntityType="InfinityModel.CarBrands" Width="1.5" PointX="2.75" PointY="0.875" />
+        <EntityTypeShape EntityType="InfinityModel.CarSeries" Width="1.5" PointX="5" PointY="1" />
+        <EntityTypeShape EntityType="InfinityModel.City" Width="1.5" PointX="3.75" PointY="31" />
+        <EntityTypeShape EntityType="InfinityModel.Comment" Width="1.5" PointX="13.5" PointY="37.25" />
+        <EntityTypeShape EntityType="InfinityModel.Country" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="InfinityModel.Coupon" Width="1.5" PointX="16.5" PointY="23.75" />
+        <EntityTypeShape EntityType="InfinityModel.CouponValidOfferable" Width="1.5" PointX="18.75" PointY="28.5" />
+        <EntityTypeShape EntityType="InfinityModel.CouponValidOfferableType" Width="1.5" PointX="20.75" PointY="39" />
+        <EntityTypeShape EntityType="InfinityModel.DeliveryMethod" Width="1.5" PointX="10.5" PointY="17.625" />
+        <EntityTypeShape EntityType="InfinityModel.DeliveryType" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="InfinityModel.EPaymentBank" Width="1.5" PointX="10.5" PointY="59.25" />
+        <EntityTypeShape EntityType="InfinityModel.Feedbak" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="InfinityModel.Field" Width="1.5" PointX="13.5" PointY="21.25" />
+        <EntityTypeShape EntityType="InfinityModel.FieldType" Width="1.5" PointX="11.25" PointY="22.25" />
+        <EntityTypeShape EntityType="InfinityModel.ForbiddenPhrase" Width="1.5" PointX="13.25" PointY="43.375" />
+        <EntityTypeShape EntityType="InfinityModel.Grocery" Width="1.5" PointX="12.75" PointY="46.625" />
+        <EntityTypeShape EntityType="InfinityModel.LoginHistory" Width="1.5" PointX="10.5" PointY="47.875" />
+        <EntityTypeShape EntityType="InfinityModel.Off" Width="1.5" PointX="12.75" PointY="26.125" />
+        <EntityTypeShape EntityType="InfinityModel.Offerable" Width="1.5" PointX="10.5" PointY="30.375" />
+        <EntityTypeShape EntityType="InfinityModel.OfferableCategories" Width="1.5" PointX="3" PointY="51.75" />
+        <EntityTypeShape EntityType="InfinityModel.OfferableDeliveryMethod" Width="1.5" PointX="12.75" PointY="29.5" />
+        <EntityTypeShape EntityType="InfinityModel.OfferablePicture" Width="1.5" PointX="12.75" PointY="32.5" />
+        <EntityTypeShape EntityType="InfinityModel.OfferableType" Width="1.5" PointX="3.75" PointY="45.875" />
+        <EntityTypeShape EntityType="InfinityModel.OfferableTypeBrand" Width="1.5" PointX="18.5" PointY="45.25" />
+        <EntityTypeShape EntityType="InfinityModel.OfferableTypeProperty" Width="1.5" PointX="20.75" PointY="35.625" />
+        <EntityTypeShape EntityType="InfinityModel.OfferableTypePropertyValue" Width="1.5" PointX="15.75" PointY="28.125" />
+        <EntityTypeShape EntityType="InfinityModel.OfferableVariation" Width="1.5" PointX="18.75" PointY="32" />
+        <EntityTypeShape EntityType="InfinityModel.Order" Width="1.5" PointX="10.5" PointY="37.25" />
+        <EntityTypeShape EntityType="InfinityModel.OrderItem" Width="1.5" PointX="15.75" PointY="36.375" />
+        <EntityTypeShape EntityType="InfinityModel.PaymentMethod" Width="1.5" PointX="8.25" PointY="43" />
+        <EntityTypeShape EntityType="InfinityModel.Penalty" Width="1.5" PointX="9" PointY="51.375" />
+        <EntityTypeShape EntityType="InfinityModel.Person" Width="1.5" PointX="6" PointY="30" />
+        <EntityTypeShape EntityType="InfinityModel.Picture" Width="1.5" PointX="10.5" PointY="14.25" />
+        <EntityTypeShape EntityType="InfinityModel.PredefinedListValue" Width="1.5" PointX="13.5" PointY="18.625" />
+        <EntityTypeShape EntityType="InfinityModel.Price" Width="1.5" PointX="16.5" PointY="20" />
+        <EntityTypeShape EntityType="InfinityModel.Province" Width="1.5" PointX="0.75" PointY="38.5" />
+        <EntityTypeShape EntityType="InfinityModel.QuantityOff" Width="1.5" PointX="15.75" PointY="32" />
+        <EntityTypeShape EntityType="InfinityModel.Region" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="InfinityModel.ReturnBack" Width="1.5" PointX="11.25" PointY="55.25" />
+        <EntityTypeShape EntityType="InfinityModel.ReturnBackResult" Width="1.5" PointX="13.5" PointY="55.25" />
+        <EntityTypeShape EntityType="InfinityModel.Role" Width="1.5" PointX="10.5" PointY="26.375" />
+        <EntityTypeShape EntityType="InfinityModel.SaleTerm" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="InfinityModel.SearchHistory" Width="1.5" PointX="6" PointY="37.75" />
+        <EntityTypeShape EntityType="InfinityModel.SearchResult" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="InfinityModel.ServiceProvider" Width="1.5" PointX="3" PointY="36.5" />
+        <EntityTypeShape EntityType="InfinityModel.Setting" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="InfinityModel.SPActivityField" Width="1.5" PointX="5.25" PointY="42" />
+        <EntityTypeShape EntityType="InfinityModel.SPCategory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="InfinityModel.SPDeliveryMethod" Width="1.5" PointX="8.25" PointY="33.5" />
+        <EntityTypeShape EntityType="InfinityModel.SPPaymentMethod" Width="1.5" PointX="5.25" PointY="34.5" />
+        <EntityTypeShape EntityType="InfinityModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="7.75" />
+        <EntityTypeShape EntityType="InfinityModel.Tag" Width="1.5" PointX="12.75" PointY="60.5" />
+        <EntityTypeShape EntityType="InfinityModel.Term" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="InfinityModel.Transaction" Width="1.5" PointX="13.5" PointY="64" />
+        <EntityTypeShape EntityType="InfinityModel.TransactionDetail" Width="1.5" PointX="15.75" PointY="40.25" />
+        <EntityTypeShape EntityType="InfinityModel.User" Width="1.5" PointX="8.25" PointY="36.875" />
+        <EntityTypeShape EntityType="InfinityModel.UserRole" Width="1.5" PointX="18.5" PointY="38.25" />
+        <AssociationConnector Association="InfinityModel.FK_Address_User" />
+        <AssociationConnector Association="InfinityModel.FK_Order_Address" />
+        <AssociationConnector Association="InfinityModel.FK_BackOrderPartCondition_OrderItems" />
+        <AssociationConnector Association="InfinityModel.FK_BadContentTypes_Penalties" />
+        <AssociationConnector Association="InfinityModel.FK_Comments_BadContentTypes" />
+        <AssociationConnector Association="InfinityModel.FK_Transaction_BankAccount" />
+        <AssociationConnector Association="InfinityModel.FK_BlackLists_ForbiddenPhrases" />
+        <AssociationConnector Association="InfinityModel.FK_BlackLists_Penalties" />
+        <AssociationConnector Association="InfinityModel.FK_BlackLists_Users" />
+        <AssociationConnector Association="InfinityModel.FK_Offerables_OfferableBrand" />
+        <AssociationConnector Association="InfinityModel.FK_OfferableTypeBrand_Brand" />
+        <AssociationConnector Association="InfinityModel.FK_CarSeries_CarBrands" />
+        <AssociationConnector Association="InfinityModel.FK_SearchHistories_Cities" />
+        <AssociationConnector Association="InfinityModel.FK_ServiceProviders_Cities" />
+        <AssociationConnector Association="InfinityModel.FK_Comments_Offerables" />
+        <AssociationConnector Association="InfinityModel.FK_Comments_ServiceProviders" />
+        <AssociationConnector Association="InfinityModel.FK_Comments_Users" />
+        <AssociationConnector Association="InfinityModel.FK_CouponValidOfferable_Coupon" />
+        <AssociationConnector Association="InfinityModel.FK_CouponValidOfferableType_Coupon" />
+        <AssociationConnector Association="InfinityModel.FK_CouponValidOfferable_Offerables" />
+        <AssociationConnector Association="InfinityModel.FK_CouponValidOfferableType_OfferableTypes" />
+        <AssociationConnector Association="InfinityModel.FK_OfferableDeliveryMethod_DeliveryMethod" />
+        <AssociationConnector Association="InfinityModel.FK_Order_DeliveryMethod" />
+        <AssociationConnector Association="InfinityModel.FK_SPDeliveryMethod_DeliveryMethod" />
+        <AssociationConnector Association="InfinityModel.FK_EPaymentBank_PaymentMethod" />
+        <AssociationConnector Association="InfinityModel.FK_Fields_FieldTypes" />
+        <AssociationConnector Association="InfinityModel.FK_OfferableTypeProperties_Fields" />
+        <AssociationConnector Association="InfinityModel.FK_OfferableTypePropertyValues_Fields" />
+        <AssociationConnector Association="InfinityModel.FK_PredefinedListValues_Fields" />
+        <AssociationConnector Association="InfinityModel.FK_ForbiddenPhrases_Penalties" />
+        <AssociationConnector Association="InfinityModel.FK_Grocery_Offerables" />
+        <AssociationConnector Association="InfinityModel.FK_LoginHistories_Users" />
+        <AssociationConnector Association="InfinityModel.FK_Off_Offerables" />
+        <AssociationConnector Association="InfinityModel.FK_Off_Roles" />
+        <AssociationConnector Association="InfinityModel.FK_OfferableDeliveryMethod_Offerables" />
+        <AssociationConnector Association="InfinityModel.FK_OfferablePictures_Offerables" />
+        <AssociationConnector Association="InfinityModel.FK_Offerables_OfferableTypes" />
+        <AssociationConnector Association="InfinityModel.FK_Offerables_ServiceProviders" />
+        <AssociationConnector Association="InfinityModel.FK_Offerables_Users" />
+        <AssociationConnector Association="InfinityModel.FK_OfferableTypePropertyValues_Offerables" />
+        <AssociationConnector Association="InfinityModel.FK_OfferableVariation_Offerables" />
+        <AssociationConnector Association="InfinityModel.FK_OrderItems_Offerables" />
+        <AssociationConnector Association="InfinityModel.FK_QuantityOff_Offerables" />
+        <AssociationConnector Association="InfinityModel.FK_Tags_Offerables" />
+        <AssociationConnector Association="InfinityModel.FK_OfferableCategories_OfferableCategories" />
+        <AssociationConnector Association="InfinityModel.FK_SPActivityFields_OfferableCategories" />
+        <AssociationConnector Association="InfinityModel.FK_SPActivityFields_OfferableCategories1" />
+        <AssociationConnector Association="InfinityModel.FK_OfferablePictures_Pictures" />
+        <AssociationConnector Association="InfinityModel.FK_OfferableTypeBrand_OfferableTypes" />
+        <AssociationConnector Association="InfinityModel.FK_OfferableTypeProperties_OfferableTypes" />
+        <AssociationConnector Association="InfinityModel.FK_OfferableTypes_OfferableTypes" />
+        <AssociationConnector Association="InfinityModel.FK_SearchHistories_OfferableTypes" />
+        <AssociationConnector Association="InfinityModel.FK_SPActivityFields_OfferableTypes" />
+        <AssociationConnector Association="InfinityModel.FK_OfferableTypePropertyValue_PredefinedListValue" />
+        <AssociationConnector Association="InfinityModel.FK_OfferableVariation_Prices" />
+        <AssociationConnector Association="InfinityModel.FK_Order_PaymentMethod" />
+        <AssociationConnector Association="InfinityModel.FK_OrderItems_Orders" />
+        <AssociationConnector Association="InfinityModel.FK_Orders_ServiceProviders" />
+        <AssociationConnector Association="InfinityModel.FK_Orders_Users" />
+        <AssociationConnector Association="InfinityModel.FK_TransactionDetail_Order" />
+        <AssociationConnector Association="InfinityModel.FK_SPPaymentMethod_PaymentMethod" />
+        <AssociationConnector Association="InfinityModel.FK_Users_Persons" />
+        <AssociationConnector Association="InfinityModel.FK_SearchHistories_Provinces" />
+        <AssociationConnector Association="InfinityModel.FK_ServiceProviders_Provinces" />
+        <AssociationConnector Association="InfinityModel.FK_QuantityOff_Roles" />
+        <AssociationConnector Association="InfinityModel.FK_ReturnBackResult_ReturnBack" />
+        <AssociationConnector Association="InfinityModel.FK_TransactionDetail_ReturnBackResult" />
+        <AssociationConnector Association="InfinityModel.FK_UserRoles_Roles" />
+        <AssociationConnector Association="InfinityModel.FK_SearchHistories_Users" />
+        <AssociationConnector Association="InfinityModel.FK_SPActivityFields_ServiceProviders" />
+        <AssociationConnector Association="InfinityModel.FK_SPDeliveryMethod_ServiceProviders" />
+        <AssociationConnector Association="InfinityModel.FK_SPPaymentMethod_ServiceProviders" />
+        <AssociationConnector Association="InfinityModel.FK_Users_ServiceProviders" />
+        <AssociationConnector Association="InfinityModel.FK_SPCategories_SPCategories" />
+        <AssociationConnector Association="InfinityModel.FK_TransactionDetail_Transaction" />
+        <AssociationConnector Association="InfinityModel.FK_UserRoles_Users" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

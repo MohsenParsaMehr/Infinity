@@ -1,0 +1,853 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="YJDbModelStoreContainer" CdmEntityContainer="YJEntities">
+    <FunctionImportMapping FunctionImportName="usp_GetAllCarBransAsXML" FunctionName="YJDbModel.Store.usp_GetAllCarBransAsXML" />
+    <FunctionImportMapping FunctionImportName="usp_GetOfferableCategoriesAsXml" FunctionName="YJDbModel.Store.usp_GetOfferableCategoriesAsXml" />
+    <FunctionImportMapping FunctionImportName="usp_GetPartsByCarInfoAndCategoryAsXml" FunctionName="YJDbModel.Store.usp_GetPartsByCarInfoAndCategoryAsXml" />
+    <FunctionImportMapping FunctionImportName="usp_getPartsAsXml" FunctionName="YJDbModel.Store.usp_getPartsAsXml" />
+    <FunctionImportMapping FunctionImportName="usp_GetProvincesAsXml" FunctionName="YJDbModel.Store.usp_GetProvincesAsXml" />
+    <FunctionImportMapping FunctionImportName="usp_GetVehicleTypeId" FunctionName="YJDbModel.Store.usp_GetVehicleTypeId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="YJDbModel.usp_GetVehicleTypeId_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetOfferableTypesByCategoryAsXml" FunctionName="YJDbModel.Store.usp_GetOfferableTypesByCategoryAsXml" />
+    <FunctionImportMapping FunctionImportName="usp_getOfferableTypeProperties" FunctionName="YJDbModel.Store.usp_getOfferableTypeProperties" />
+    <FunctionImportMapping FunctionImportName="usp_GetPriceTypesAsXml" FunctionName="YJDbModel.Store.usp_GetPriceTypesAsXml" />
+    <FunctionImportMapping FunctionImportName="usp_GetPartConditionsAsXml" FunctionName="YJDbModel.Store.usp_GetPartConditionsAsXml" />
+    <FunctionImportMapping FunctionImportName="usp_insertOfferablePicture" FunctionName="YJDbModel.Store.usp_insertOfferablePicture" />
+    <FunctionImportMapping FunctionImportName="usp_GetSPCategoriesAsXml" FunctionName="YJDbModel.Store.usp_GetSPCategoriesAsXml" />
+    <FunctionImportMapping FunctionImportName="usp_GetSPTypesByCategoryAsXml" FunctionName="YJDbModel.Store.usp_GetSPTypesByCategoryAsXml" />
+    <FunctionImportMapping FunctionImportName="usp_getBadContentTypes" FunctionName="YJDbModel.Store.usp_getBadContentTypes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="YJDbModel.usp_getBadContentTypes_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PenaltyRef" ColumnName="PenaltyRef" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetOfferableCategories" FunctionName="YJDbModel.Store.usp_GetOfferableCategories">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="YJDbModel.usp_GetOfferableCategories_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ParentRef" ColumnName="ParentRef" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetOfferableTypesByCategory" FunctionName="YJDbModel.Store.usp_GetOfferableTypesByCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="YJDbModel.usp_GetOfferableTypesByCategory_Result">
+          <ScalarProperty Name="C_Id" ColumnName="@Id" />
+          <ScalarProperty Name="C_Title" ColumnName="@Title" />
+          <ScalarProperty Name="C_Priority" ColumnName="@Priority" />
+          <ScalarProperty Name="C_PhotoUrl" ColumnName="@PhotoUrl" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="BackOrderPartCondition">
+      <EntityTypeMapping TypeName="YJDbModel.BackOrderPartCondition">
+        <MappingFragment StoreEntitySet="BackOrderPartCondition">
+          <ScalarProperty Name="OrderItemRef" ColumnName="OrderItemRef" />
+          <ScalarProperty Name="ConditionRef" ColumnName="ConditionRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BadContentTypes">
+      <EntityTypeMapping TypeName="YJDbModel.BadContentTypes">
+        <MappingFragment StoreEntitySet="BadContentTypes">
+          <ScalarProperty Name="Severity" ColumnName="Severity" />
+          <ScalarProperty Name="PenaltyRef" ColumnName="PenaltyRef" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BankAccounts">
+      <EntityTypeMapping TypeName="YJDbModel.BankAccounts">
+        <MappingFragment StoreEntitySet="BankAccounts">
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="AccessCartNo" ColumnName="AccessCartNo" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlackLists">
+      <EntityTypeMapping TypeName="YJDbModel.BlackLists">
+        <MappingFragment StoreEntitySet="BlackLists">
+          <ScalarProperty Name="DeviceIMEI" ColumnName="DeviceIMEI" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="MACAddress" ColumnName="MACAddress" />
+          <ScalarProperty Name="BadContentTypeRef" ColumnName="BadContentTypeRef" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="ForbidenPhraseRef" ColumnName="ForbidenPhraseRef" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="PenaltyRef" ColumnName="PenaltyRef" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brand">
+      <EntityTypeMapping TypeName="YJDbModel.Brand">
+        <MappingFragment StoreEntitySet="Brand">
+          <ScalarProperty Name="GuaranteeTerms" ColumnName="GuaranteeTerms" />
+          <ScalarProperty Name="HasGuarantee" ColumnName="HasGuarantee" />
+          <ScalarProperty Name="CountryRef" ColumnName="CountryRef" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarBrands">
+      <EntityTypeMapping TypeName="YJDbModel.CarBrands">
+        <MappingFragment StoreEntitySet="CarBrands">
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="CountryRef" ColumnName="CountryRef" />
+          <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarSeries">
+      <EntityTypeMapping TypeName="YJDbModel.CarSeries">
+        <MappingFragment StoreEntitySet="CarSeries">
+          <ScalarProperty Name="CarBrandRef" ColumnName="CarBrandRef" />
+          <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarSerieYears">
+      <EntityTypeMapping TypeName="YJDbModel.CarSerieYears">
+        <MappingFragment StoreEntitySet="CarSerieYears">
+          <ScalarProperty Name="CarSerieRef" ColumnName="CarSerieRef" />
+          <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="YJDbModel.Cities">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="PrefixCode" ColumnName="PrefixCode" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="YJDbModel.Comments">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="IsDisliked" ColumnName="IsDisliked" />
+          <ScalarProperty Name="IsLiked" ColumnName="IsLiked" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="BadContentTypeRef" ColumnName="BadContentTypeRef" />
+          <ScalarProperty Name="IsShared" ColumnName="IsShared" />
+          <ScalarProperty Name="IsFavorited" ColumnName="IsFavorited" />
+          <ScalarProperty Name="QuestionRef" ColumnName="QuestionRef" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="YJDbModel.Countries">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryMethod">
+      <EntityTypeMapping TypeName="YJDbModel.DeliveryMethod">
+        <MappingFragment StoreEntitySet="DeliveryMethod">
+          <ScalarProperty Name="FreeIfOrderAbove" ColumnName="FreeIfOrderAbove" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="DeliveryTimeTo" ColumnName="DeliveryTimeTo" />
+          <ScalarProperty Name="DeliveryTimeFrom" ColumnName="DeliveryTimeFrom" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="IsLocal" ColumnName="IsLocal" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryTypes">
+      <EntityTypeMapping TypeName="YJDbModel.DeliveryTypes">
+        <MappingFragment StoreEntitySet="DeliveryTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbaks">
+      <EntityTypeMapping TypeName="YJDbModel.Feedbaks">
+        <MappingFragment StoreEntitySet="Feedbaks">
+          <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fields">
+      <EntityTypeMapping TypeName="YJDbModel.Fields">
+        <MappingFragment StoreEntitySet="Fields">
+          <ScalarProperty Name="Properties" ColumnName="Properties" />
+          <ScalarProperty Name="MinChars" ColumnName="MinChars" />
+          <ScalarProperty Name="TypeRef" ColumnName="TypeRef" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ValidationExpression" ColumnName="ValidationExpression" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="Tooltip" ColumnName="Tooltip" />
+          <ScalarProperty Name="IsRequired" ColumnName="IsRequired" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FieldTypes">
+      <EntityTypeMapping TypeName="YJDbModel.FieldTypes">
+        <MappingFragment StoreEntitySet="FieldTypes">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ForbiddenPhrases">
+      <EntityTypeMapping TypeName="YJDbModel.ForbiddenPhrases">
+        <MappingFragment StoreEntitySet="ForbiddenPhrases">
+          <ScalarProperty Name="Severity" ColumnName="Severity" />
+          <ScalarProperty Name="PenaltyRef" ColumnName="PenaltyRef" />
+          <ScalarProperty Name="Phrase" ColumnName="Phrase" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginHistories">
+      <EntityTypeMapping TypeName="YJDbModel.LoginHistories">
+        <MappingFragment StoreEntitySet="LoginHistories">
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
+          <ScalarProperty Name="Using" ColumnName="Using" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferableCategories">
+      <EntityTypeMapping TypeName="YJDbModel.OfferableCategories">
+        <MappingFragment StoreEntitySet="OfferableCategories">
+          <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ParentRef" ColumnName="ParentRef" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferableDeliveryMethod">
+      <EntityTypeMapping TypeName="YJDbModel.OfferableDeliveryMethod">
+        <MappingFragment StoreEntitySet="OfferableDeliveryMethod">
+          <ScalarProperty Name="DeliveryMethodRef" ColumnName="DeliveryMethodRef" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferablePaymentMethod">
+      <EntityTypeMapping TypeName="YJDbModel.OfferablePaymentMethod">
+        <MappingFragment StoreEntitySet="OfferablePaymentMethod">
+          <ScalarProperty Name="PaymentMethodRef" ColumnName="PaymentMethodRef" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferablePictures">
+      <EntityTypeMapping TypeName="YJDbModel.OfferablePictures">
+        <MappingFragment StoreEntitySet="OfferablePictures">
+          <ScalarProperty Name="PictureRef" ColumnName="PictureRef" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Offerables">
+      <EntityTypeMapping TypeName="YJDbModel.Offerables">
+        <MappingFragment StoreEntitySet="Offerables">
+          <ScalarProperty Name="BrandRef" ColumnName="BrandRef" />
+          <ScalarProperty Name="IsBackOrder" ColumnName="IsBackOrder" />
+          <ScalarProperty Name="CityRef" ColumnName="CityRef" />
+          <ScalarProperty Name="ProvinceRef" ColumnName="ProvinceRef" />
+          <ScalarProperty Name="IsSpecial" ColumnName="IsSpecial" />
+          <ScalarProperty Name="OperatorUserRef" ColumnName="OperatorUserRef" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="TypeRef" ColumnName="TypeRef" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferableTypeBrand">
+      <EntityTypeMapping TypeName="YJDbModel.OfferableTypeBrand">
+        <MappingFragment StoreEntitySet="OfferableTypeBrand">
+          <ScalarProperty Name="BrandRef" ColumnName="BrandRef" />
+          <ScalarProperty Name="OfferableTypeRef" ColumnName="OfferableTypeRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferableTypeProperties">
+      <EntityTypeMapping TypeName="YJDbModel.OfferableTypeProperties">
+        <MappingFragment StoreEntitySet="OfferableTypeProperties">
+          <ScalarProperty Name="FieldRef" ColumnName="FieldRef" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="OfferableTypeRef" ColumnName="OfferableTypeRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferableTypePropertyValues">
+      <EntityTypeMapping TypeName="YJDbModel.OfferableTypePropertyValues">
+        <MappingFragment StoreEntitySet="OfferableTypePropertyValues">
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="FieldRef" ColumnName="FieldRef" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferableTypes">
+      <EntityTypeMapping TypeName="YJDbModel.OfferableTypes">
+        <MappingFragment StoreEntitySet="OfferableTypes">
+          <ScalarProperty Name="IsVirtual" ColumnName="IsVirtual" />
+          <ScalarProperty Name="ParentRef" ColumnName="ParentRef" />
+          <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+          <ScalarProperty Name="MaxPrice" ColumnName="MaxPrice" />
+          <ScalarProperty Name="MinPrice" ColumnName="MinPrice" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="CategoryRef" ColumnName="CategoryRef" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferableVariation">
+      <EntityTypeMapping TypeName="YJDbModel.OfferableVariation">
+        <MappingFragment StoreEntitySet="OfferableVariation">
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="PriceRef" ColumnName="PriceRef" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="YJDbModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="PaymentMethodRef" ColumnName="PaymentMethodRef" />
+          <ScalarProperty Name="DeliveryMethodRef" ColumnName="DeliveryMethodRef" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderItem">
+      <EntityTypeMapping TypeName="YJDbModel.OrderItem">
+        <MappingFragment StoreEntitySet="OrderItem">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="OrderRef" ColumnName="OrderRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartConditions">
+      <EntityTypeMapping TypeName="YJDbModel.PartConditions">
+        <MappingFragment StoreEntitySet="PartConditions">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parts">
+      <EntityTypeMapping TypeName="YJDbModel.Parts">
+        <MappingFragment StoreEntitySet="Parts">
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="ValidDays" ColumnName="ValidDays" />
+          <ScalarProperty Name="HasReturnBackGuarantee" ColumnName="HasReturnBackGuarantee" />
+          <ScalarProperty Name="ShowQuantity" ColumnName="ShowQuantity" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ChasisNo" ColumnName="ChasisNo" />
+          <ScalarProperty Name="VehicleTypeRef" ColumnName="VehicleTypeRef" />
+          <ScalarProperty Name="GuarranteeCompany" ColumnName="GuarranteeCompany" />
+          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+          <ScalarProperty Name="ProcurementCode" ColumnName="ProcurementCode" />
+          <ScalarProperty Name="DedicatedCode" ColumnName="DedicatedCode" />
+          <ScalarProperty Name="GurranteeTerms" ColumnName="GurranteeTerms" />
+          <ScalarProperty Name="QualityRef" ColumnName="QualityRef" />
+          <ScalarProperty Name="HasGurantee" ColumnName="HasGurantee" />
+          <ScalarProperty Name="TechnicalNo" ColumnName="TechnicalNo" />
+          <ScalarProperty Name="ConditionRef" ColumnName="ConditionRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartSupportedCars">
+      <EntityTypeMapping TypeName="YJDbModel.PartSupportedCars">
+        <MappingFragment StoreEntitySet="PartSupportedCars">
+          <ScalarProperty Name="PartRef" ColumnName="PartRef" />
+          <ScalarProperty Name="CarSeriYearRef" ColumnName="CarSeriYearRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentMethod">
+      <EntityTypeMapping TypeName="YJDbModel.PaymentMethod">
+        <MappingFragment StoreEntitySet="PaymentMethod">
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Penalties">
+      <EntityTypeMapping TypeName="YJDbModel.Penalties">
+        <MappingFragment StoreEntitySet="Penalties">
+          <ScalarProperty Name="Severity" ColumnName="Severity" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Persons">
+      <EntityTypeMapping TypeName="YJDbModel.Persons">
+        <MappingFragment StoreEntitySet="Persons">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CityRef" ColumnName="CityRef" />
+          <ScalarProperty Name="ProvinceRef" ColumnName="ProvinceRef" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pictures">
+      <EntityTypeMapping TypeName="YJDbModel.Pictures">
+        <MappingFragment StoreEntitySet="Pictures">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Alternate" ColumnName="Alternate" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PredefinedListValues">
+      <EntityTypeMapping TypeName="YJDbModel.PredefinedListValues">
+        <MappingFragment StoreEntitySet="PredefinedListValues">
+          <ScalarProperty Name="FieldRef" ColumnName="FieldRef" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prices">
+      <EntityTypeMapping TypeName="YJDbModel.Prices">
+        <MappingFragment StoreEntitySet="Prices">
+          <ScalarProperty Name="CoWorkerPrice" ColumnName="CoWorkerPrice" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="TypeRef" ColumnName="TypeRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PriceTypes">
+      <EntityTypeMapping TypeName="YJDbModel.PriceTypes">
+        <MappingFragment StoreEntitySet="PriceTypes">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProvinceCities">
+      <EntityTypeMapping TypeName="YJDbModel.ProvinceCities">
+        <MappingFragment StoreEntitySet="ProvinceCities">
+          <ScalarProperty Name="CityRef" ColumnName="CityRef" />
+          <ScalarProperty Name="ProvinceRef" ColumnName="ProvinceRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provinces">
+      <EntityTypeMapping TypeName="YJDbModel.Provinces">
+        <MappingFragment StoreEntitySet="Provinces">
+          <ScalarProperty Name="PrefixCode" ColumnName="PrefixCode" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Qualities">
+      <EntityTypeMapping TypeName="YJDbModel.Qualities">
+        <MappingFragment StoreEntitySet="Qualities">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="YJDbModel.Regions">
+        <MappingFragment StoreEntitySet="Regions">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReturnBackResults">
+      <EntityTypeMapping TypeName="YJDbModel.ReturnBackResults">
+        <MappingFragment StoreEntitySet="ReturnBackResults">
+          <ScalarProperty Name="OperatorUserRef" ColumnName="OperatorUserRef" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="IsAccepted" ColumnName="IsAccepted" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="ReturnBackRef" ColumnName="ReturnBackRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReturnBacks">
+      <EntityTypeMapping TypeName="YJDbModel.ReturnBacks">
+        <MappingFragment StoreEntitySet="ReturnBacks">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Culprit" ColumnName="Culprit" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="YJDbModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaleTerms">
+      <EntityTypeMapping TypeName="YJDbModel.SaleTerms">
+        <MappingFragment StoreEntitySet="SaleTerms">
+          <ScalarProperty Name="OperatorUserRef" ColumnName="OperatorUserRef" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="MaxQuantityPerBuyer" ColumnName="MaxQuantityPerBuyer" />
+          <ScalarProperty Name="TermRef" ColumnName="TermRef" />
+          <ScalarProperty Name="ApplicableFor" ColumnName="ApplicableFor" />
+          <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SearchHistories">
+      <EntityTypeMapping TypeName="YJDbModel.SearchHistories">
+        <MappingFragment StoreEntitySet="SearchHistories">
+          <ScalarProperty Name="CityRef" ColumnName="CityRef" />
+          <ScalarProperty Name="CarSerieYearRef" ColumnName="CarSerieYearRef" />
+          <ScalarProperty Name="ProvinceRef" ColumnName="ProvinceRef" />
+          <ScalarProperty Name="OfferableTypeRef" ColumnName="OfferableTypeRef" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="Criteria" ColumnName="Criteria" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SearchResults">
+      <EntityTypeMapping TypeName="YJDbModel.SearchResults">
+        <MappingFragment StoreEntitySet="SearchResults">
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="IsClicked" ColumnName="IsClicked" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="SearchRef" ColumnName="SearchRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceProviders">
+      <EntityTypeMapping TypeName="YJDbModel.ServiceProviders">
+        <MappingFragment StoreEntitySet="ServiceProviders">
+          <ScalarProperty Name="Reputation" ColumnName="Reputation" />
+          <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="TypeRef" ColumnName="TypeRef" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CityRef" ColumnName="CityRef" />
+          <ScalarProperty Name="ProvinceRef" ColumnName="ProvinceRef" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Settings">
+      <EntityTypeMapping TypeName="YJDbModel.Settings">
+        <MappingFragment StoreEntitySet="Settings">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DotNetType" ColumnName="DotNetType" />
+          <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPActivityFields">
+      <EntityTypeMapping TypeName="YJDbModel.SPActivityFields">
+        <MappingFragment StoreEntitySet="SPActivityFields">
+          <ScalarProperty Name="VehicleTypeRef" ColumnName="VehicleTypeRef" />
+          <ScalarProperty Name="OfferableCategoryRef" ColumnName="OfferableCategoryRef" />
+          <ScalarProperty Name="OfferableTypeRef" ColumnName="OfferableTypeRef" />
+          <ScalarProperty Name="CarSerieYearRef" ColumnName="CarSerieYearRef" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPCategories">
+      <EntityTypeMapping TypeName="YJDbModel.SPCategories">
+        <MappingFragment StoreEntitySet="SPCategories">
+          <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ParentRef" ColumnName="ParentRef" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPDeliveryMethod">
+      <EntityTypeMapping TypeName="YJDbModel.SPDeliveryMethod">
+        <MappingFragment StoreEntitySet="SPDeliveryMethod">
+          <ScalarProperty Name="DeliveryMethodRef" ColumnName="DeliveryMethodRef" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPPartner">
+      <EntityTypeMapping TypeName="YJDbModel.SPPartner">
+        <MappingFragment StoreEntitySet="SPPartner">
+          <ScalarProperty Name="PartnerSPRef" ColumnName="PartnerSPRef" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPPaymentMethod">
+      <EntityTypeMapping TypeName="YJDbModel.SPPaymentMethod">
+        <MappingFragment StoreEntitySet="SPPaymentMethod">
+          <ScalarProperty Name="PaymentMethodRef" ColumnName="PaymentMethodRef" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPTypes">
+      <EntityTypeMapping TypeName="YJDbModel.SPTypes">
+        <MappingFragment StoreEntitySet="SPTypes">
+          <ScalarProperty Name="SPCategoryRef" ColumnName="SPCategoryRef" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="YJDbModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tag">
+      <EntityTypeMapping TypeName="YJDbModel.Tag">
+        <MappingFragment StoreEntitySet="Tag">
+          <ScalarProperty Name="Tag1" ColumnName="Tag" />
+          <ScalarProperty Name="OfferableRef" ColumnName="OfferableRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TechnicalQuestions">
+      <EntityTypeMapping TypeName="YJDbModel.TechnicalQuestions">
+        <MappingFragment StoreEntitySet="TechnicalQuestions">
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Terms">
+      <EntityTypeMapping TypeName="YJDbModel.Terms">
+        <MappingFragment StoreEntitySet="Terms">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transaction">
+      <EntityTypeMapping TypeName="YJDbModel.Transaction">
+        <MappingFragment StoreEntitySet="Transaction">
+          <ScalarProperty Name="Regarding" ColumnName="Regarding" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="BankAccountRef" ColumnName="BankAccountRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactionDetail">
+      <EntityTypeMapping TypeName="YJDbModel.TransactionDetail">
+        <MappingFragment StoreEntitySet="TransactionDetail">
+          <ScalarProperty Name="ReturnbackResultRef" ColumnName="ReturnbackResultRef" />
+          <ScalarProperty Name="OrderRef" ColumnName="OrderRef" />
+          <ScalarProperty Name="TransactionRef" ColumnName="TransactionRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="YJDbModel.UserRoles">
+        <MappingFragment StoreEntitySet="UserRoles">
+          <ScalarProperty Name="OperatorUserRef" ColumnName="OperatorUserRef" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RoleRef" ColumnName="RoleRef" />
+          <ScalarProperty Name="UserRef" ColumnName="UserRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="YJDbModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Reputation" ColumnName="Reputation" />
+          <ScalarProperty Name="ReferrerRef" ColumnName="ReferrerRef" />
+          <ScalarProperty Name="SPRef" ColumnName="SPRef" />
+          <ScalarProperty Name="PersonRef" ColumnName="PersonRef" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicles">
+      <EntityTypeMapping TypeName="YJDbModel.Vehicles">
+        <MappingFragment StoreEntitySet="Vehicles">
+          <ScalarProperty Name="ChasisNo" ColumnName="ChasisNo" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="FuelType" ColumnName="FuelType" />
+          <ScalarProperty Name="GearTypeAuto" ColumnName="GearTypeAuto" />
+          <ScalarProperty Name="UsedKiloMeters" ColumnName="UsedKiloMeters" />
+          <ScalarProperty Name="CarBrandRef" ColumnName="CarBrandRef" />
+          <ScalarProperty Name="ConditionRef" ColumnName="ConditionRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

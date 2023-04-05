@@ -1,0 +1,2294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YJDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="BackOrderPartCondition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ConditionRef" Type="int" Nullable="false" />
+    <Property Name="OrderItemRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BadContentTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PenaltyRef" Type="int" Nullable="false" />
+    <Property Name="Severity" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="BankAccounts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SPRef" Type="int" />
+    <Property Name="BankName" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="BranchName" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="BranchCode" Type="nvarchar" MaxLength="25" />
+    <Property Name="AccountNo" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="AccessCartNo" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="UserRef" Type="int" />
+  </EntityType>
+  <EntityType Name="BlackLists">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserRef" Type="int" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="PenaltyRef" Type="int" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="ForbidenPhraseRef" Type="int" />
+    <Property Name="IpAddress" Type="varchar" MaxLength="45" />
+    <Property Name="BadContentTypeRef" Type="int" />
+    <Property Name="MACAddress" Type="varchar" MaxLength="25" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="15" />
+    <Property Name="DeviceIMEI" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="1024" />
+    <Property Name="CountryRef" Type="int" Nullable="false" />
+    <Property Name="HasGuarantee" Type="bit" Nullable="false" />
+    <Property Name="GuaranteeTerms" Type="nvarchar" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="CarBrands">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="PhotoUrl" Type="nvarchar" MaxLength="1024" />
+    <Property Name="CountryRef" Type="int" />
+    <Property Name="Manufacturer" Type="nvarchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="CarSeries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="PhotoUrl" Type="nvarchar" MaxLength="1024" />
+    <Property Name="CarBrandRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CarSerieYears">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="PhotoUrl" Type="nvarchar" MaxLength="1024" />
+    <Property Name="CarSerieRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="PrefixCode" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserRef" Type="int" Nullable="false" />
+    <Property Name="SPRef" Type="int" />
+    <Property Name="OfferableRef" Type="int" />
+    <Property Name="QuestionRef" Type="int" />
+    <Property Name="IsFavorited" Type="bit" Nullable="false" />
+    <Property Name="IsShared" Type="bit" />
+    <Property Name="BadContentTypeRef" Type="int" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="4000" />
+    <Property Name="IsLiked" Type="bit" />
+    <Property Name="IsDisliked" Type="bit" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="1024" />
+  </EntityType>
+  <EntityType Name="DeliveryMethod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="IsLocal" Type="bit" Nullable="false" />
+    <Property Name="Cost" Type="money" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="DeliveryTimeFrom" Type="tinyint" Nullable="false" />
+    <Property Name="DeliveryTimeTo" Type="tinyint" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="1024" />
+    <Property Name="FreeIfOrderAbove" Type="money" />
+  </EntityType>
+  <EntityType Name="DeliveryTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Feedbaks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="UserRef" Type="int" />
+    <Property Name="AppVersion" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Fields">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsRequired" Type="bit" Nullable="false" />
+    <Property Name="Tooltip" Type="nvarchar" MaxLength="400" />
+    <Property Name="ErrorMessage" Type="nvarchar" MaxLength="400" />
+    <Property Name="ValidationExpression" Type="varchar" MaxLength="100" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="TypeRef" Type="int" Nullable="false" />
+    <Property Name="MinChars" Type="tinyint" />
+    <Property Name="Properties" Type="nvarchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="FieldTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ForbiddenPhrases">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Phrase" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="PenaltyRef" Type="int" Nullable="false" />
+    <Property Name="Severity" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoginHistories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserRef" Type="int" />
+    <Property Name="IpAddress" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Using" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="AppVersion" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OfferableCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="ParentRef" Type="int" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="4000" />
+    <Property Name="PhotoUrl" Type="nvarchar" MaxLength="1024" />
+  </EntityType>
+  <EntityType Name="OfferableDeliveryMethod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OfferableRef" Type="int" Nullable="false" />
+    <Property Name="DeliveryMethodRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OfferablePaymentMethod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OfferableRef" Type="int" Nullable="false" />
+    <Property Name="PaymentMethodRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OfferablePictures">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OfferableRef" Type="int" Nullable="false" />
+    <Property Name="PictureRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Offerables">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="SPRef" Type="int" Nullable="false" />
+    <Property Name="TypeRef" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="OperatorUserRef" Type="int" />
+    <Property Name="IsSpecial" Type="bit" />
+    <Property Name="ProvinceRef" Type="int" />
+    <Property Name="CityRef" Type="int" />
+    <Property Name="IsBackOrder" Type="bit" />
+    <Property Name="BrandRef" Type="int" />
+  </EntityType>
+  <EntityType Name="OfferableTypeBrand">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OfferableTypeRef" Type="int" Nullable="false" />
+    <Property Name="BrandRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OfferableTypeProperties">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OfferableTypeRef" Type="int" Nullable="false" />
+    <Property Name="Priority" Type="smallint" />
+    <Property Name="FieldRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OfferableTypePropertyValues">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="FieldRef" Type="int" Nullable="false" />
+    <Property Name="OfferableRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OfferableTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" />
+    <Property Name="CategoryRef" Type="int" Nullable="false" />
+    <Property Name="Priority" Type="smallint" />
+    <Property Name="Rank" Type="float" />
+    <Property Name="MinPrice" Type="money" />
+    <Property Name="MaxPrice" Type="money" />
+    <Property Name="PhotoUrl" Type="nvarchar" MaxLength="1024" />
+    <Property Name="ParentRef" Type="int" />
+    <Property Name="IsVirtual" Type="bit" />
+  </EntityType>
+  <EntityType Name="OfferableVariation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PriceRef" Type="int" Nullable="false" />
+    <Property Name="OfferableRef" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="smallint" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserRef" Type="int" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="SPRef" Type="int" />
+    <Property Name="DeliveryMethodRef" Type="int" Nullable="false" />
+    <Property Name="PaymentMethodRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="OrderRef" Type="int" Nullable="false" />
+    <Property Name="OfferableRef" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="smallint" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PartConditions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Parts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="ConditionRef" Type="int" />
+    <Property Name="TechnicalNo" Type="nvarchar" MaxLength="25" />
+    <Property Name="HasGurantee" Type="bit" Nullable="false" />
+    <Property Name="QualityRef" Type="int" />
+    <Property Name="GurranteeTerms" Type="nvarchar" MaxLength="4000" />
+    <Property Name="DedicatedCode" Type="nvarchar" MaxLength="25" />
+    <Property Name="ProcurementCode" Type="nvarchar" MaxLength="25" />
+    <Property Name="Barcode" Type="bigint" />
+    <Property Name="GuarranteeCompany" Type="nvarchar" MaxLength="25" />
+    <Property Name="VehicleTypeRef" Type="int" />
+    <Property Name="ChasisNo" Type="varchar" MaxLength="40" />
+    <Property Name="Code" Type="nvarchar" MaxLength="10" />
+    <Property Name="ShowQuantity" Type="bit" />
+    <Property Name="HasReturnBackGuarantee" Type="bit" />
+    <Property Name="ValidDays" Type="tinyint" />
+    <Property Name="Weight" Type="float" />
+    <Property Name="Length" Type="tinyint" />
+    <Property Name="Width" Type="tinyint" />
+    <Property Name="Height" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="PartSupportedCars">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CarSeriYearRef" Type="int" Nullable="false" />
+    <Property Name="PartRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="4000" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="1024" />
+    <Property Name="Discount" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Penalties">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Severity" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Persons">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Mobile" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ProvinceRef" Type="int" Nullable="false" />
+    <Property Name="CityRef" Type="int" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Pictures">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Url" Type="nvarchar" MaxLength="1024" Nullable="false" />
+    <Property Name="Alternate" Type="nvarchar" MaxLength="400" />
+    <Property Name="Description" Type="nvarchar" MaxLength="400" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="PredefinedListValues">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Item" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="FieldRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Prices">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeRef" Type="int" Nullable="false" />
+    <Property Name="Price" Type="money" />
+    <Property Name="ValidFrom" Type="datetime" />
+    <Property Name="ValidTo" Type="datetime" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" />
+    <Property Name="OldPrice" Type="money" />
+    <Property Name="CoWorkerPrice" Type="money" />
+  </EntityType>
+  <EntityType Name="PriceTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProvinceCities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProvinceRef" Type="int" Nullable="false" />
+    <Property Name="CityRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Provinces">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="PrefixCode" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Qualities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Regions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReturnBackResults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReturnBackRef" Type="int" Nullable="false" />
+    <Property Name="Answer" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="IsAccepted" Type="bit" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="OperatorUserRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReturnBacks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SPRef" Type="int" Nullable="false" />
+    <Property Name="OfferableRef" Type="int" Nullable="false" />
+    <Property Name="UserRef" Type="int" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="Culprit" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SaleTerms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SPRef" Type="int" Nullable="false" />
+    <Property Name="OfferableRef" Type="int" Nullable="false" />
+    <Property Name="ValidFrom" Type="datetime" />
+    <Property Name="ValidTo" Type="datetime" />
+    <Property Name="ApplicableFor" Type="nvarchar" MaxLength="15" />
+    <Property Name="TermRef" Type="int" />
+    <Property Name="MaxQuantityPerBuyer" Type="smallint" />
+    <Property Name="Quantity" Type="smallint" Nullable="false" />
+    <Property Name="OperatorUserRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SearchHistories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Criteria" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserRef" Type="int" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="OfferableTypeRef" Type="int" Nullable="false" />
+    <Property Name="ProvinceRef" Type="int" Nullable="false" />
+    <Property Name="CarSerieYearRef" Type="int" />
+    <Property Name="CityRef" Type="int" />
+  </EntityType>
+  <EntityType Name="SearchResults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SearchRef" Type="int" Nullable="false" />
+    <Property Name="OfferableRef" Type="int" />
+    <Property Name="SPRef" Type="int" />
+    <Property Name="IsClicked" Type="bit" Nullable="false" />
+    <Property Name="Priority" Type="smallint" />
+  </EntityType>
+  <EntityType Name="ServiceProviders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Fax" Type="varchar" MaxLength="15" />
+    <Property Name="ProvinceRef" Type="int" Nullable="false" />
+    <Property Name="CityRef" Type="int" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="TypeRef" Type="int" Nullable="false" />
+    <Property Name="Logo" Type="nvarchar" MaxLength="1024" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="WebSite" Type="nvarchar" MaxLength="1024" />
+    <Property Name="Reputation" Type="smallint" />
+  </EntityType>
+  <EntityType Name="Settings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Key" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="SPRef" Type="int" />
+    <Property Name="ValidFrom" Type="datetime" />
+    <Property Name="ValidTo" Type="datetime" />
+    <Property Name="DotNetType" Type="varchar" MaxLength="25" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SPActivityFields">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SPRef" Type="int" Nullable="false" />
+    <Property Name="CarSerieYearRef" Type="int" Nullable="false" />
+    <Property Name="OfferableTypeRef" Type="int" Nullable="false" />
+    <Property Name="OfferableCategoryRef" Type="int" Nullable="false" />
+    <Property Name="VehicleTypeRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SPCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="ParentRef" Type="int" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="4000" />
+    <Property Name="PhotoUrl" Type="nvarchar" MaxLength="1024" />
+  </EntityType>
+  <EntityType Name="SPDeliveryMethod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SPRef" Type="int" Nullable="false" />
+    <Property Name="DeliveryMethodRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SPPartner">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SPRef" Type="int" Nullable="false" />
+    <Property Name="PartnerSPRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SPPaymentMethod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SPRef" Type="int" Nullable="false" />
+    <Property Name="PaymentMethodRef" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'YJDb.dbo.SPPreference' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SPPreference">
+          <Property Name="Id" Type="nchar" MaxLength="10" />
+        </EntityType>-->
+  <EntityType Name="SPTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="1024" />
+    <Property Name="SPCategoryRef" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tag">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="OfferableRef" Type="int" Nullable="false" />
+    <Property Name="Tag" Type="nvarchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TechnicalQuestions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Question" Type="nvarchar" MaxLength="4000" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Terms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BankAccountRef" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Regarding" Type="nvarchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TransactionDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="TransactionRef" Type="int" Nullable="false" />
+    <Property Name="OrderRef" Type="int" />
+    <Property Name="ReturnbackResultRef" Type="int" />
+  </EntityType>
+  <EntityType Name="UserRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserRef" Type="int" Nullable="false" />
+    <Property Name="RoleRef" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="OperatorUserRef" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="PersonRef" Type="int" />
+    <Property Name="SPRef" Type="int" />
+    <Property Name="ReferrerRef" Type="int" />
+    <Property Name="Reputation" Type="smallint" />
+  </EntityType>
+  <EntityType Name="Vehicles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="ConditionRef" Type="int" Nullable="false" />
+    <Property Name="CarBrandRef" Type="int" Nullable="false" />
+    <Property Name="UsedKiloMeters" Type="bigint" />
+    <Property Name="GearTypeAuto" Type="bit" Nullable="false" />
+    <Property Name="FuelType" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Color" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="ChasisNo" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <Association Name="FK_BackOrderPartCondition_OrderItems">
+    <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BackOrderPartCondition" Type="Self.BackOrderPartCondition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BackOrderPartCondition">
+        <PropertyRef Name="OrderItemRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BackOrderPartCondition_PartConditions">
+    <End Role="PartConditions" Type="Self.PartConditions" Multiplicity="1" />
+    <End Role="BackOrderPartCondition" Type="Self.BackOrderPartCondition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartConditions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BackOrderPartCondition">
+        <PropertyRef Name="ConditionRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BadContentTypes_Penalties">
+    <End Role="Penalties" Type="Self.Penalties" Multiplicity="1" />
+    <End Role="BadContentTypes" Type="Self.BadContentTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Penalties">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BadContentTypes">
+        <PropertyRef Name="PenaltyRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlackLists_ForbiddenPhrases">
+    <End Role="ForbiddenPhrases" Type="Self.ForbiddenPhrases" Multiplicity="0..1" />
+    <End Role="BlackLists" Type="Self.BlackLists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ForbiddenPhrases">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BlackLists">
+        <PropertyRef Name="ForbidenPhraseRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlackLists_Penalties">
+    <End Role="Penalties" Type="Self.Penalties" Multiplicity="1" />
+    <End Role="BlackLists" Type="Self.BlackLists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Penalties">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BlackLists">
+        <PropertyRef Name="PenaltyRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlackLists_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BlackLists" Type="Self.BlackLists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BlackLists">
+        <PropertyRef Name="UserRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Brand_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+    <End Role="Brand" Type="Self.Brand" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Brand">
+        <PropertyRef Name="CountryRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CarSeries_CarBrands">
+    <End Role="CarBrands" Type="Self.CarBrands" Multiplicity="1" />
+    <End Role="CarSeries" Type="Self.CarSeries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarBrands">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarSeries">
+        <PropertyRef Name="CarBrandRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CarSerieYears_CarSeries">
+    <End Role="CarSeries" Type="Self.CarSeries" Multiplicity="1" />
+    <End Role="CarSerieYears" Type="Self.CarSerieYears" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarSeries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarSerieYears">
+        <PropertyRef Name="CarSerieRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_BadContentTypes">
+    <End Role="BadContentTypes" Type="Self.BadContentTypes" Multiplicity="0..1" />
+    <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BadContentTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="BadContentTypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_Offerables">
+    <End Role="Offerables" Type="Self.Offerables" Multiplicity="0..1" />
+    <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="OfferableRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_ServiceProviders">
+    <End Role="ServiceProviders" Type="Self.ServiceProviders" Multiplicity="0..1" />
+    <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceProviders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="SPRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="UserRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Favorites_TechnicalQuestions">
+    <End Role="TechnicalQuestions" Type="Self.TechnicalQuestions" Multiplicity="0..1" />
+    <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TechnicalQuestions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="QuestionRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fields_FieldTypes">
+    <End Role="FieldTypes" Type="Self.FieldTypes" Multiplicity="1" />
+    <End Role="Fields" Type="Self.Fields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FieldTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Fields">
+        <PropertyRef Name="TypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ForbiddenPhrases_Penalties">
+    <End Role="Penalties" Type="Self.Penalties" Multiplicity="1" />
+    <End Role="ForbiddenPhrases" Type="Self.ForbiddenPhrases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Penalties">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ForbiddenPhrases">
+        <PropertyRef Name="PenaltyRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoginHistories_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="LoginHistories" Type="Self.LoginHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LoginHistories">
+        <PropertyRef Name="UserRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableCategories_OfferableCategories">
+    <End Role="OfferableCategories" Type="Self.OfferableCategories" Multiplicity="0..1" />
+    <End Role="OfferableCategories1" Type="Self.OfferableCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableCategories1">
+        <PropertyRef Name="ParentRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableDeliveryMethod_DeliveryMethod">
+    <End Role="DeliveryMethod" Type="Self.DeliveryMethod" Multiplicity="1" />
+    <End Role="OfferableDeliveryMethod" Type="Self.OfferableDeliveryMethod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeliveryMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableDeliveryMethod">
+        <PropertyRef Name="DeliveryMethodRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableDeliveryMethod_Offerables">
+    <End Role="Offerables" Type="Self.Offerables" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OfferableDeliveryMethod" Type="Self.OfferableDeliveryMethod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableDeliveryMethod">
+        <PropertyRef Name="OfferableRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferablePaymentMethod_Offerables">
+    <End Role="Offerables" Type="Self.Offerables" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OfferablePaymentMethod" Type="Self.OfferablePaymentMethod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferablePaymentMethod">
+        <PropertyRef Name="OfferableRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferablePaymentMethod_PaymentMethod">
+    <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
+    <End Role="OfferablePaymentMethod" Type="Self.OfferablePaymentMethod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferablePaymentMethod">
+        <PropertyRef Name="PaymentMethodRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferablePictures_Offerables">
+    <End Role="Offerables" Type="Self.Offerables" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OfferablePictures" Type="Self.OfferablePictures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferablePictures">
+        <PropertyRef Name="OfferableRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferablePictures_Pictures">
+    <End Role="Pictures" Type="Self.Pictures" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OfferablePictures" Type="Self.OfferablePictures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pictures">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferablePictures">
+        <PropertyRef Name="PictureRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offerables_Cities">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+    <End Role="Offerables" Type="Self.Offerables" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offerables">
+        <PropertyRef Name="CityRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offerables_OfferableBrand">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+    <End Role="Offerables" Type="Self.Offerables" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offerables">
+        <PropertyRef Name="BrandRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offerables_OfferableTypes">
+    <End Role="OfferableTypes" Type="Self.OfferableTypes" Multiplicity="1" />
+    <End Role="Offerables" Type="Self.Offerables" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offerables">
+        <PropertyRef Name="TypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offerables_Provinces">
+    <End Role="Provinces" Type="Self.Provinces" Multiplicity="0..1" />
+    <End Role="Offerables" Type="Self.Offerables" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provinces">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offerables">
+        <PropertyRef Name="ProvinceRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offerables_ServiceProviders">
+    <End Role="ServiceProviders" Type="Self.ServiceProviders" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Offerables" Type="Self.Offerables" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceProviders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offerables">
+        <PropertyRef Name="SPRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offerables_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Offerables" Type="Self.Offerables" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Offerables">
+        <PropertyRef Name="OperatorUserRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableTypeBrand_Brand">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OfferableTypeBrand" Type="Self.OfferableTypeBrand" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableTypeBrand">
+        <PropertyRef Name="BrandRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableTypeBrand_OfferableTypes">
+    <End Role="OfferableTypes" Type="Self.OfferableTypes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OfferableTypeBrand" Type="Self.OfferableTypeBrand" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableTypeBrand">
+        <PropertyRef Name="OfferableTypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableTypeProperties_Fields">
+    <End Role="Fields" Type="Self.Fields" Multiplicity="1" />
+    <End Role="OfferableTypeProperties" Type="Self.OfferableTypeProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fields">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableTypeProperties">
+        <PropertyRef Name="FieldRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableTypeProperties_OfferableTypes">
+    <End Role="OfferableTypes" Type="Self.OfferableTypes" Multiplicity="1" />
+    <End Role="OfferableTypeProperties" Type="Self.OfferableTypeProperties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableTypeProperties">
+        <PropertyRef Name="OfferableTypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableTypePropertyValues_Fields">
+    <End Role="Fields" Type="Self.Fields" Multiplicity="1" />
+    <End Role="OfferableTypePropertyValues" Type="Self.OfferableTypePropertyValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fields">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableTypePropertyValues">
+        <PropertyRef Name="FieldRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableTypePropertyValues_Offerables">
+    <End Role="Offerables" Type="Self.Offerables" Multiplicity="1" />
+    <End Role="OfferableTypePropertyValues" Type="Self.OfferableTypePropertyValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableTypePropertyValues">
+        <PropertyRef Name="OfferableRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableTypes_OfferableCategories">
+    <End Role="OfferableCategories" Type="Self.OfferableCategories" Multiplicity="1" />
+    <End Role="OfferableTypes" Type="Self.OfferableTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableTypes">
+        <PropertyRef Name="CategoryRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableTypes_OfferableTypes">
+    <End Role="OfferableTypes" Type="Self.OfferableTypes" Multiplicity="0..1" />
+    <End Role="OfferableTypes1" Type="Self.OfferableTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableTypes1">
+        <PropertyRef Name="ParentRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableVariation_Offerables">
+    <End Role="Offerables" Type="Self.Offerables" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OfferableVariation" Type="Self.OfferableVariation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableVariation">
+        <PropertyRef Name="OfferableRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferableVariation_Prices">
+    <End Role="Prices" Type="Self.Prices" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OfferableVariation" Type="Self.OfferableVariation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prices">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfferableVariation">
+        <PropertyRef Name="PriceRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_DeliveryMethod">
+    <End Role="DeliveryMethod" Type="Self.DeliveryMethod" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeliveryMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="DeliveryMethodRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_PaymentMethod">
+    <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="PaymentMethodRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItems_Offerables">
+    <End Role="Offerables" Type="Self.Offerables" Multiplicity="1" />
+    <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="OfferableRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItems_Orders">
+    <End Role="Order" Type="Self.Order" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="OrderRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ServiceProviders">
+    <End Role="ServiceProviders" Type="Self.ServiceProviders" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceProviders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="SPRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="UserRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Parts_OfferableCategories">
+    <End Role="OfferableCategories" Type="Self.OfferableCategories" Multiplicity="0..1" />
+    <End Role="Parts" Type="Self.Parts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Parts">
+        <PropertyRef Name="VehicleTypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Parts_Offerables">
+    <End Role="Offerables" Type="Self.Offerables" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Parts" Type="Self.Parts" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Parts">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Parts_PartConditions">
+    <End Role="PartConditions" Type="Self.PartConditions" Multiplicity="0..1" />
+    <End Role="Parts" Type="Self.Parts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartConditions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Parts">
+        <PropertyRef Name="ConditionRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Parts_Qualities">
+    <End Role="Qualities" Type="Self.Qualities" Multiplicity="0..1" />
+    <End Role="Parts" Type="Self.Parts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Qualities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Parts">
+        <PropertyRef Name="QualityRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartSupportedCars_CarSerieYears">
+    <End Role="CarSerieYears" Type="Self.CarSerieYears" Multiplicity="1" />
+    <End Role="PartSupportedCars" Type="Self.PartSupportedCars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarSerieYears">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartSupportedCars">
+        <PropertyRef Name="CarSeriYearRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartSupportedCars_Parts">
+    <End Role="Parts" Type="Self.Parts" Multiplicity="1" />
+    <End Role="PartSupportedCars" Type="Self.PartSupportedCars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Parts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartSupportedCars">
+        <PropertyRef Name="PartRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Persons_Cities">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+    <End Role="Persons" Type="Self.Persons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Persons">
+        <PropertyRef Name="CityRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Persons_Provinces">
+    <End Role="Provinces" Type="Self.Provinces" Multiplicity="1" />
+    <End Role="Persons" Type="Self.Persons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provinces">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Persons">
+        <PropertyRef Name="ProvinceRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PredefinedListValues_Fields">
+    <End Role="Fields" Type="Self.Fields" Multiplicity="1" />
+    <End Role="PredefinedListValues" Type="Self.PredefinedListValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fields">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PredefinedListValues">
+        <PropertyRef Name="FieldRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Prices_PriceTypes">
+    <End Role="PriceTypes" Type="Self.PriceTypes" Multiplicity="1" />
+    <End Role="Prices" Type="Self.Prices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PriceTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Prices">
+        <PropertyRef Name="TypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProvinceCities_Cities">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+    <End Role="ProvinceCities" Type="Self.ProvinceCities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProvinceCities">
+        <PropertyRef Name="CityRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProvinceCities_Provinces">
+    <End Role="Provinces" Type="Self.Provinces" Multiplicity="1" />
+    <End Role="ProvinceCities" Type="Self.ProvinceCities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provinces">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProvinceCities">
+        <PropertyRef Name="ProvinceRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SearchHistories_CarSerieYears">
+    <End Role="CarSerieYears" Type="Self.CarSerieYears" Multiplicity="0..1" />
+    <End Role="SearchHistories" Type="Self.SearchHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarSerieYears">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SearchHistories">
+        <PropertyRef Name="CarSerieYearRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SearchHistories_Cities">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+    <End Role="SearchHistories" Type="Self.SearchHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SearchHistories">
+        <PropertyRef Name="CityRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SearchHistories_OfferableTypes">
+    <End Role="OfferableTypes" Type="Self.OfferableTypes" Multiplicity="1" />
+    <End Role="SearchHistories" Type="Self.SearchHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SearchHistories">
+        <PropertyRef Name="OfferableTypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SearchHistories_Provinces">
+    <End Role="Provinces" Type="Self.Provinces" Multiplicity="1" />
+    <End Role="SearchHistories" Type="Self.SearchHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provinces">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SearchHistories">
+        <PropertyRef Name="ProvinceRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SearchHistories_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="SearchHistories" Type="Self.SearchHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SearchHistories">
+        <PropertyRef Name="UserRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceProviders_Cities">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+    <End Role="ServiceProviders" Type="Self.ServiceProviders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceProviders">
+        <PropertyRef Name="CityRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceProviders_Provinces">
+    <End Role="Provinces" Type="Self.Provinces" Multiplicity="1" />
+    <End Role="ServiceProviders" Type="Self.ServiceProviders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provinces">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceProviders">
+        <PropertyRef Name="ProvinceRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceProviders_SPTypes">
+    <End Role="SPTypes" Type="Self.SPTypes" Multiplicity="1" />
+    <End Role="ServiceProviders" Type="Self.ServiceProviders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceProviders">
+        <PropertyRef Name="TypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPActivityFields_CarSerieYears">
+    <End Role="CarSerieYears" Type="Self.CarSerieYears" Multiplicity="1" />
+    <End Role="SPActivityFields" Type="Self.SPActivityFields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarSerieYears">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPActivityFields">
+        <PropertyRef Name="CarSerieYearRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPActivityFields_OfferableCategories">
+    <End Role="OfferableCategories" Type="Self.OfferableCategories" Multiplicity="1" />
+    <End Role="SPActivityFields" Type="Self.SPActivityFields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPActivityFields">
+        <PropertyRef Name="OfferableCategoryRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPActivityFields_OfferableCategories1">
+    <End Role="OfferableCategories" Type="Self.OfferableCategories" Multiplicity="1" />
+    <End Role="SPActivityFields" Type="Self.SPActivityFields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPActivityFields">
+        <PropertyRef Name="VehicleTypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPActivityFields_OfferableTypes">
+    <End Role="OfferableTypes" Type="Self.OfferableTypes" Multiplicity="1" />
+    <End Role="SPActivityFields" Type="Self.SPActivityFields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfferableTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPActivityFields">
+        <PropertyRef Name="OfferableTypeRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPActivityFields_ServiceProviders">
+    <End Role="ServiceProviders" Type="Self.ServiceProviders" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SPActivityFields" Type="Self.SPActivityFields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceProviders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPActivityFields">
+        <PropertyRef Name="SPRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPCategories_SPCategories">
+    <End Role="SPCategories" Type="Self.SPCategories" Multiplicity="0..1" />
+    <End Role="SPCategories1" Type="Self.SPCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPCategories1">
+        <PropertyRef Name="ParentRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPDeliveryMethod_DeliveryMethod">
+    <End Role="DeliveryMethod" Type="Self.DeliveryMethod" Multiplicity="1" />
+    <End Role="SPDeliveryMethod" Type="Self.SPDeliveryMethod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeliveryMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPDeliveryMethod">
+        <PropertyRef Name="DeliveryMethodRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPDeliveryMethod_ServiceProviders">
+    <End Role="ServiceProviders" Type="Self.ServiceProviders" Multiplicity="1" />
+    <End Role="SPDeliveryMethod" Type="Self.SPDeliveryMethod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceProviders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPDeliveryMethod">
+        <PropertyRef Name="SPRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPPartner_ServiceProviders">
+    <End Role="ServiceProviders" Type="Self.ServiceProviders" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SPPartner" Type="Self.SPPartner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceProviders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPPartner">
+        <PropertyRef Name="PartnerSPRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPPartner_ServiceProviders1">
+    <End Role="ServiceProviders" Type="Self.ServiceProviders" Multiplicity="1" />
+    <End Role="SPPartner" Type="Self.SPPartner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceProviders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPPartner">
+        <PropertyRef Name="SPRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPPaymentMethod_PaymentMethod">
+    <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
+    <End Role="SPPaymentMethod" Type="Self.SPPaymentMethod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPPaymentMethod">
+        <PropertyRef Name="PaymentMethodRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPPaymentMethod_ServiceProviders">
+    <End Role="ServiceProviders" Type="Self.ServiceProviders" Multiplicity="1" />
+    <End Role="SPPaymentMethod" Type="Self.SPPaymentMethod" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceProviders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPPaymentMethod">
+        <PropertyRef Name="SPRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SPTypes_SPCategories">
+    <End Role="SPCategories" Type="Self.SPCategories" Multiplicity="0..1" />
+    <End Role="SPTypes" Type="Self.SPTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SPTypes">
+        <PropertyRef Name="SPCategoryRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tags_Offerables">
+    <End Role="Offerables" Type="Self.Offerables" Multiplicity="1" />
+    <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tag">
+        <PropertyRef Name="OfferableRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRoles_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRoles">
+        <PropertyRef Name="RoleRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRoles_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRoles">
+        <PropertyRef Name="UserRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Persons">
+    <End Role="Persons" Type="Self.Persons" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persons">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="PersonRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_ServiceProviders">
+    <End Role="ServiceProviders" Type="Self.ServiceProviders" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceProviders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="SPRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicles_CarBrands">
+    <End Role="CarBrands" Type="Self.CarBrands" Multiplicity="1" />
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarBrands">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="CarBrandRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicles_Offerables">
+    <End Role="Offerables" Type="Self.Offerables" Multiplicity="1" />
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Offerables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicles_PartConditions">
+    <End Role="PartConditions" Type="Self.PartConditions" Multiplicity="1" />
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartConditions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="ConditionRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="usp_GetAllCarBransAsXML" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_getBadContentTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_GetOfferableCategories" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ParentID" Type="int" Mode="In" />
+    <Parameter Name="Title" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_GetOfferableCategoriesAsXml" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ParentID" Type="int" Mode="In" />
+    <Parameter Name="Title" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_getOfferableTypeProperties" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OfferableTypeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetOfferableTypesByCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetOfferableTypesByCategoryAsXml" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetPartConditionsAsXml" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_getPartsAsXml" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Criteria" Type="nvarchar" Mode="In" />
+    <Parameter Name="TechnicalNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="ChasisNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="CarBrandId" Type="int" Mode="In" />
+    <Parameter Name="CarSerieId" Type="int" Mode="In" />
+    <Parameter Name="CarSerieYearId" Type="int" Mode="In" />
+    <Parameter Name="PartCategoryId" Type="int" Mode="In" />
+    <Parameter Name="ProvinceId" Type="int" Mode="In" />
+    <Parameter Name="CityId" Type="int" Mode="In" />
+    <Parameter Name="VehicleTypeId" Type="int" Mode="In" />
+    <Parameter Name="Operator" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_GetPartsByCarInfoAndCategoryAsXml" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CarBrandId" Type="int" Mode="In" />
+    <Parameter Name="CarSerieId" Type="int" Mode="In" />
+    <Parameter Name="CarSerieYearId" Type="int" Mode="In" />
+    <Parameter Name="PartCategoryId" Type="int" Mode="In" />
+    <Parameter Name="ProvinceId" Type="int" Mode="In" />
+    <Parameter Name="CityId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetPriceTypesAsXml" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_GetProvincesAsXml" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_GetSPCategoriesAsXml" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ParentID" Type="int" Mode="In" />
+    <Parameter Name="Title" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_GetSPTypesByCategoryAsXml" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetVehicleTypeId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VehicleCategoryId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_insertOfferablePicture" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OfferableId" Type="int" Mode="In" />
+    <Parameter Name="PictureUrl" Type="nvarchar" Mode="In" />
+    <Parameter Name="Alternate" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="YJDbModelStoreContainer">
+    <EntitySet Name="BackOrderPartCondition" EntityType="Self.BackOrderPartCondition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BadContentTypes" EntityType="Self.BadContentTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BankAccounts" EntityType="Self.BankAccounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BlackLists" EntityType="Self.BlackLists" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CarBrands" EntityType="Self.CarBrands" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CarSeries" EntityType="Self.CarSeries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CarSerieYears" EntityType="Self.CarSerieYears" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryMethod" EntityType="Self.DeliveryMethod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryTypes" EntityType="Self.DeliveryTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Feedbaks" EntityType="Self.Feedbaks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fields" EntityType="Self.Fields" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FieldTypes" EntityType="Self.FieldTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ForbiddenPhrases" EntityType="Self.ForbiddenPhrases" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoginHistories" EntityType="Self.LoginHistories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OfferableCategories" EntityType="Self.OfferableCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OfferableDeliveryMethod" EntityType="Self.OfferableDeliveryMethod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OfferablePaymentMethod" EntityType="Self.OfferablePaymentMethod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OfferablePictures" EntityType="Self.OfferablePictures" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Offerables" EntityType="Self.Offerables" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OfferableTypeBrand" EntityType="Self.OfferableTypeBrand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OfferableTypeProperties" EntityType="Self.OfferableTypeProperties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OfferableTypePropertyValues" EntityType="Self.OfferableTypePropertyValues" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OfferableTypes" EntityType="Self.OfferableTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OfferableVariation" EntityType="Self.OfferableVariation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderItem" EntityType="Self.OrderItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartConditions" EntityType="Self.PartConditions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parts" EntityType="Self.Parts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartSupportedCars" EntityType="Self.PartSupportedCars" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentMethod" EntityType="Self.PaymentMethod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Penalties" EntityType="Self.Penalties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Persons" EntityType="Self.Persons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pictures" EntityType="Self.Pictures" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PredefinedListValues" EntityType="Self.PredefinedListValues" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Prices" EntityType="Self.Prices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PriceTypes" EntityType="Self.PriceTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProvinceCities" EntityType="Self.ProvinceCities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Provinces" EntityType="Self.Provinces" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Qualities" EntityType="Self.Qualities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReturnBackResults" EntityType="Self.ReturnBackResults" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReturnBacks" EntityType="Self.ReturnBacks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleTerms" EntityType="Self.SaleTerms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SearchHistories" EntityType="Self.SearchHistories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SearchResults" EntityType="Self.SearchResults" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceProviders" EntityType="Self.ServiceProviders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SPActivityFields" EntityType="Self.SPActivityFields" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SPCategories" EntityType="Self.SPCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SPDeliveryMethod" EntityType="Self.SPDeliveryMethod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SPPartner" EntityType="Self.SPPartner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SPPaymentMethod" EntityType="Self.SPPaymentMethod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SPTypes" EntityType="Self.SPTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TechnicalQuestions" EntityType="Self.TechnicalQuestions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Terms" EntityType="Self.Terms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactionDetail" EntityType="Self.TransactionDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehicles" EntityType="Self.Vehicles" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BackOrderPartCondition_OrderItems" Association="Self.FK_BackOrderPartCondition_OrderItems">
+      <End Role="OrderItem" EntitySet="OrderItem" />
+      <End Role="BackOrderPartCondition" EntitySet="BackOrderPartCondition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BackOrderPartCondition_PartConditions" Association="Self.FK_BackOrderPartCondition_PartConditions">
+      <End Role="PartConditions" EntitySet="PartConditions" />
+      <End Role="BackOrderPartCondition" EntitySet="BackOrderPartCondition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BadContentTypes_Penalties" Association="Self.FK_BadContentTypes_Penalties">
+      <End Role="Penalties" EntitySet="Penalties" />
+      <End Role="BadContentTypes" EntitySet="BadContentTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlackLists_ForbiddenPhrases" Association="Self.FK_BlackLists_ForbiddenPhrases">
+      <End Role="ForbiddenPhrases" EntitySet="ForbiddenPhrases" />
+      <End Role="BlackLists" EntitySet="BlackLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlackLists_Penalties" Association="Self.FK_BlackLists_Penalties">
+      <End Role="Penalties" EntitySet="Penalties" />
+      <End Role="BlackLists" EntitySet="BlackLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlackLists_Users" Association="Self.FK_BlackLists_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="BlackLists" EntitySet="BlackLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Brand_Countries" Association="Self.FK_Brand_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Brand" EntitySet="Brand" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CarSeries_CarBrands" Association="Self.FK_CarSeries_CarBrands">
+      <End Role="CarBrands" EntitySet="CarBrands" />
+      <End Role="CarSeries" EntitySet="CarSeries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CarSerieYears_CarSeries" Association="Self.FK_CarSerieYears_CarSeries">
+      <End Role="CarSeries" EntitySet="CarSeries" />
+      <End Role="CarSerieYears" EntitySet="CarSerieYears" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_BadContentTypes" Association="Self.FK_Comments_BadContentTypes">
+      <End Role="BadContentTypes" EntitySet="BadContentTypes" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_Offerables" Association="Self.FK_Comments_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_ServiceProviders" Association="Self.FK_Comments_ServiceProviders">
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_Users" Association="Self.FK_Comments_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Favorites_TechnicalQuestions" Association="Self.FK_Favorites_TechnicalQuestions">
+      <End Role="TechnicalQuestions" EntitySet="TechnicalQuestions" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fields_FieldTypes" Association="Self.FK_Fields_FieldTypes">
+      <End Role="FieldTypes" EntitySet="FieldTypes" />
+      <End Role="Fields" EntitySet="Fields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ForbiddenPhrases_Penalties" Association="Self.FK_ForbiddenPhrases_Penalties">
+      <End Role="Penalties" EntitySet="Penalties" />
+      <End Role="ForbiddenPhrases" EntitySet="ForbiddenPhrases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginHistories_Users" Association="Self.FK_LoginHistories_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="LoginHistories" EntitySet="LoginHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableCategories_OfferableCategories" Association="Self.FK_OfferableCategories_OfferableCategories">
+      <End Role="OfferableCategories" EntitySet="OfferableCategories" />
+      <End Role="OfferableCategories1" EntitySet="OfferableCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableDeliveryMethod_DeliveryMethod" Association="Self.FK_OfferableDeliveryMethod_DeliveryMethod">
+      <End Role="DeliveryMethod" EntitySet="DeliveryMethod" />
+      <End Role="OfferableDeliveryMethod" EntitySet="OfferableDeliveryMethod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableDeliveryMethod_Offerables" Association="Self.FK_OfferableDeliveryMethod_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="OfferableDeliveryMethod" EntitySet="OfferableDeliveryMethod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferablePaymentMethod_Offerables" Association="Self.FK_OfferablePaymentMethod_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="OfferablePaymentMethod" EntitySet="OfferablePaymentMethod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferablePaymentMethod_PaymentMethod" Association="Self.FK_OfferablePaymentMethod_PaymentMethod">
+      <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+      <End Role="OfferablePaymentMethod" EntitySet="OfferablePaymentMethod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferablePictures_Offerables" Association="Self.FK_OfferablePictures_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="OfferablePictures" EntitySet="OfferablePictures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferablePictures_Pictures" Association="Self.FK_OfferablePictures_Pictures">
+      <End Role="Pictures" EntitySet="Pictures" />
+      <End Role="OfferablePictures" EntitySet="OfferablePictures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offerables_Cities" Association="Self.FK_Offerables_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Offerables" EntitySet="Offerables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offerables_OfferableBrand" Association="Self.FK_Offerables_OfferableBrand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="Offerables" EntitySet="Offerables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offerables_OfferableTypes" Association="Self.FK_Offerables_OfferableTypes">
+      <End Role="OfferableTypes" EntitySet="OfferableTypes" />
+      <End Role="Offerables" EntitySet="Offerables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offerables_Provinces" Association="Self.FK_Offerables_Provinces">
+      <End Role="Provinces" EntitySet="Provinces" />
+      <End Role="Offerables" EntitySet="Offerables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offerables_ServiceProviders" Association="Self.FK_Offerables_ServiceProviders">
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+      <End Role="Offerables" EntitySet="Offerables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offerables_Users" Association="Self.FK_Offerables_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Offerables" EntitySet="Offerables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableTypeBrand_Brand" Association="Self.FK_OfferableTypeBrand_Brand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="OfferableTypeBrand" EntitySet="OfferableTypeBrand" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableTypeBrand_OfferableTypes" Association="Self.FK_OfferableTypeBrand_OfferableTypes">
+      <End Role="OfferableTypes" EntitySet="OfferableTypes" />
+      <End Role="OfferableTypeBrand" EntitySet="OfferableTypeBrand" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableTypeProperties_Fields" Association="Self.FK_OfferableTypeProperties_Fields">
+      <End Role="Fields" EntitySet="Fields" />
+      <End Role="OfferableTypeProperties" EntitySet="OfferableTypeProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableTypeProperties_OfferableTypes" Association="Self.FK_OfferableTypeProperties_OfferableTypes">
+      <End Role="OfferableTypes" EntitySet="OfferableTypes" />
+      <End Role="OfferableTypeProperties" EntitySet="OfferableTypeProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableTypePropertyValues_Fields" Association="Self.FK_OfferableTypePropertyValues_Fields">
+      <End Role="Fields" EntitySet="Fields" />
+      <End Role="OfferableTypePropertyValues" EntitySet="OfferableTypePropertyValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableTypePropertyValues_Offerables" Association="Self.FK_OfferableTypePropertyValues_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="OfferableTypePropertyValues" EntitySet="OfferableTypePropertyValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableTypes_OfferableCategories" Association="Self.FK_OfferableTypes_OfferableCategories">
+      <End Role="OfferableCategories" EntitySet="OfferableCategories" />
+      <End Role="OfferableTypes" EntitySet="OfferableTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableTypes_OfferableTypes" Association="Self.FK_OfferableTypes_OfferableTypes">
+      <End Role="OfferableTypes" EntitySet="OfferableTypes" />
+      <End Role="OfferableTypes1" EntitySet="OfferableTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableVariation_Offerables" Association="Self.FK_OfferableVariation_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="OfferableVariation" EntitySet="OfferableVariation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferableVariation_Prices" Association="Self.FK_OfferableVariation_Prices">
+      <End Role="Prices" EntitySet="Prices" />
+      <End Role="OfferableVariation" EntitySet="OfferableVariation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_DeliveryMethod" Association="Self.FK_Order_DeliveryMethod">
+      <End Role="DeliveryMethod" EntitySet="DeliveryMethod" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_PaymentMethod" Association="Self.FK_Order_PaymentMethod">
+      <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_Offerables" Association="Self.FK_OrderItems_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="OrderItem" EntitySet="OrderItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_Orders" Association="Self.FK_OrderItems_Orders">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="OrderItem" EntitySet="OrderItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ServiceProviders" Association="Self.FK_Orders_ServiceProviders">
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Users" Association="Self.FK_Orders_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Parts_OfferableCategories" Association="Self.FK_Parts_OfferableCategories">
+      <End Role="OfferableCategories" EntitySet="OfferableCategories" />
+      <End Role="Parts" EntitySet="Parts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Parts_Offerables" Association="Self.FK_Parts_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="Parts" EntitySet="Parts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Parts_PartConditions" Association="Self.FK_Parts_PartConditions">
+      <End Role="PartConditions" EntitySet="PartConditions" />
+      <End Role="Parts" EntitySet="Parts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Parts_Qualities" Association="Self.FK_Parts_Qualities">
+      <End Role="Qualities" EntitySet="Qualities" />
+      <End Role="Parts" EntitySet="Parts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartSupportedCars_CarSerieYears" Association="Self.FK_PartSupportedCars_CarSerieYears">
+      <End Role="CarSerieYears" EntitySet="CarSerieYears" />
+      <End Role="PartSupportedCars" EntitySet="PartSupportedCars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartSupportedCars_Parts" Association="Self.FK_PartSupportedCars_Parts">
+      <End Role="Parts" EntitySet="Parts" />
+      <End Role="PartSupportedCars" EntitySet="PartSupportedCars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Persons_Cities" Association="Self.FK_Persons_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Persons" EntitySet="Persons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Persons_Provinces" Association="Self.FK_Persons_Provinces">
+      <End Role="Provinces" EntitySet="Provinces" />
+      <End Role="Persons" EntitySet="Persons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PredefinedListValues_Fields" Association="Self.FK_PredefinedListValues_Fields">
+      <End Role="Fields" EntitySet="Fields" />
+      <End Role="PredefinedListValues" EntitySet="PredefinedListValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Prices_PriceTypes" Association="Self.FK_Prices_PriceTypes">
+      <End Role="PriceTypes" EntitySet="PriceTypes" />
+      <End Role="Prices" EntitySet="Prices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProvinceCities_Cities" Association="Self.FK_ProvinceCities_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="ProvinceCities" EntitySet="ProvinceCities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProvinceCities_Provinces" Association="Self.FK_ProvinceCities_Provinces">
+      <End Role="Provinces" EntitySet="Provinces" />
+      <End Role="ProvinceCities" EntitySet="ProvinceCities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SearchHistories_CarSerieYears" Association="Self.FK_SearchHistories_CarSerieYears">
+      <End Role="CarSerieYears" EntitySet="CarSerieYears" />
+      <End Role="SearchHistories" EntitySet="SearchHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SearchHistories_Cities" Association="Self.FK_SearchHistories_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="SearchHistories" EntitySet="SearchHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SearchHistories_OfferableTypes" Association="Self.FK_SearchHistories_OfferableTypes">
+      <End Role="OfferableTypes" EntitySet="OfferableTypes" />
+      <End Role="SearchHistories" EntitySet="SearchHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SearchHistories_Provinces" Association="Self.FK_SearchHistories_Provinces">
+      <End Role="Provinces" EntitySet="Provinces" />
+      <End Role="SearchHistories" EntitySet="SearchHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SearchHistories_Users" Association="Self.FK_SearchHistories_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="SearchHistories" EntitySet="SearchHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceProviders_Cities" Association="Self.FK_ServiceProviders_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceProviders_Provinces" Association="Self.FK_ServiceProviders_Provinces">
+      <End Role="Provinces" EntitySet="Provinces" />
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceProviders_SPTypes" Association="Self.FK_ServiceProviders_SPTypes">
+      <End Role="SPTypes" EntitySet="SPTypes" />
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPActivityFields_CarSerieYears" Association="Self.FK_SPActivityFields_CarSerieYears">
+      <End Role="CarSerieYears" EntitySet="CarSerieYears" />
+      <End Role="SPActivityFields" EntitySet="SPActivityFields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPActivityFields_OfferableCategories" Association="Self.FK_SPActivityFields_OfferableCategories">
+      <End Role="OfferableCategories" EntitySet="OfferableCategories" />
+      <End Role="SPActivityFields" EntitySet="SPActivityFields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPActivityFields_OfferableCategories1" Association="Self.FK_SPActivityFields_OfferableCategories1">
+      <End Role="OfferableCategories" EntitySet="OfferableCategories" />
+      <End Role="SPActivityFields" EntitySet="SPActivityFields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPActivityFields_OfferableTypes" Association="Self.FK_SPActivityFields_OfferableTypes">
+      <End Role="OfferableTypes" EntitySet="OfferableTypes" />
+      <End Role="SPActivityFields" EntitySet="SPActivityFields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPActivityFields_ServiceProviders" Association="Self.FK_SPActivityFields_ServiceProviders">
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+      <End Role="SPActivityFields" EntitySet="SPActivityFields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPCategories_SPCategories" Association="Self.FK_SPCategories_SPCategories">
+      <End Role="SPCategories" EntitySet="SPCategories" />
+      <End Role="SPCategories1" EntitySet="SPCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPDeliveryMethod_DeliveryMethod" Association="Self.FK_SPDeliveryMethod_DeliveryMethod">
+      <End Role="DeliveryMethod" EntitySet="DeliveryMethod" />
+      <End Role="SPDeliveryMethod" EntitySet="SPDeliveryMethod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPDeliveryMethod_ServiceProviders" Association="Self.FK_SPDeliveryMethod_ServiceProviders">
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+      <End Role="SPDeliveryMethod" EntitySet="SPDeliveryMethod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPPartner_ServiceProviders" Association="Self.FK_SPPartner_ServiceProviders">
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+      <End Role="SPPartner" EntitySet="SPPartner" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPPartner_ServiceProviders1" Association="Self.FK_SPPartner_ServiceProviders1">
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+      <End Role="SPPartner" EntitySet="SPPartner" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPPaymentMethod_PaymentMethod" Association="Self.FK_SPPaymentMethod_PaymentMethod">
+      <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+      <End Role="SPPaymentMethod" EntitySet="SPPaymentMethod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPPaymentMethod_ServiceProviders" Association="Self.FK_SPPaymentMethod_ServiceProviders">
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+      <End Role="SPPaymentMethod" EntitySet="SPPaymentMethod" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SPTypes_SPCategories" Association="Self.FK_SPTypes_SPCategories">
+      <End Role="SPCategories" EntitySet="SPCategories" />
+      <End Role="SPTypes" EntitySet="SPTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tags_Offerables" Association="Self.FK_Tags_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="Tag" EntitySet="Tag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRoles_Roles" Association="Self.FK_UserRoles_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="UserRoles" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRoles_Users" Association="Self.FK_UserRoles_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserRoles" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Persons" Association="Self.FK_Users_Persons">
+      <End Role="Persons" EntitySet="Persons" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ServiceProviders" Association="Self.FK_Users_ServiceProviders">
+      <End Role="ServiceProviders" EntitySet="ServiceProviders" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicles_CarBrands" Association="Self.FK_Vehicles_CarBrands">
+      <End Role="CarBrands" EntitySet="CarBrands" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicles_Offerables" Association="Self.FK_Vehicles_Offerables">
+      <End Role="Offerables" EntitySet="Offerables" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicles_PartConditions" Association="Self.FK_Vehicles_PartConditions">
+      <End Role="PartConditions" EntitySet="PartConditions" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
